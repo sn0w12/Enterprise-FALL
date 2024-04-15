@@ -1,6 +1,8 @@
 package com.example.enterprisefall.entity;
 
 import jakarta.persistence.*;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 @Entity
 public class Booking {
@@ -9,18 +11,19 @@ public class Booking {
     private Long id;
     @Column
     private String Booking;
-    private String BookingDate;
-    private String ReturnDate;
-    //ID (AI PK) of person who booked
+    private Date BookingDate;
+    private Date ReturnDate;
+
+    // @OneToOne to their ID
     private String PersonWhoBooks;
-    // Brand and other things associated with the car booked
+    // ID of car booked
     private String CarBooked;
 
     public Booking() {
 
     }
 
-    public Booking(Long id, String booking, String bookingDate, String returnDate, String personWhoBooks, String carBooked) {
+    public Booking(Long id, String booking, Date bookingDate, Date returnDate, String personWhoBooks, String carBooked) {
         this.id = id;
         Booking = booking;
         BookingDate = bookingDate;
@@ -37,19 +40,19 @@ public class Booking {
         Booking = booking;
     }
 
-    public String getBookingDate() {
+    public Date getBookingDate() {
         return BookingDate;
     }
 
-    public void setBookingDate(String bookingDate) {
+    public void setBookingDate(Date bookingDate) {
         BookingDate = bookingDate;
     }
 
-    public String getReturnDate() {
+    public Date getReturnDate() {
         return ReturnDate;
     }
 
-    public void setReturnDate(String returnDate) {
+    public void setReturnDate(Date returnDate) {
         ReturnDate = returnDate;
     }
 
