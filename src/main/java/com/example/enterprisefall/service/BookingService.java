@@ -30,7 +30,9 @@ public class BookingService implements BookingServiceInterface {
     //aktiva bookings
     @Override
     public List<Booking> getAllBookings() {
+
         return bookingRepository.findAll();
+
     }
 
     @Override
@@ -52,6 +54,7 @@ public class BookingService implements BookingServiceInterface {
     @Override
     public void deleteBookingById(long id) {
         bookingRepository.deleteById(id);
+        logger.info("\nDeleted booking with ID: " + id + "\n");
     }
 
     @Override

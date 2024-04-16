@@ -95,8 +95,9 @@ public ResponseEntity<List<Booking>> listAllBookings() {
 //
 
     //• Ta bort bokning DELETE /api/v1/deleteorder
+    //behövs justeras då den tar bort alla bokningar haha
 @DeleteMapping("/deleteorder/{id}")
-public ResponseEntity<String> deleteBooking(@PathVariable ("id") int id) {
+public ResponseEntity<String> deleteBooking(@PathVariable ("id") long id) {
     bookingService.deleteBookingById(id);
 
     return null;
