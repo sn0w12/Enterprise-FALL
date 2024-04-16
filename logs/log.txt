@@ -1,17 +1,10 @@
-2024-04-16 12:24:31,230 * INFO * com.example.enterprisefall.service.CarService * addCar * 
-Added new car: com.example.enterprisefall.entity.Car@2b9c5c8b
+2024-04-16 15:53:28,235 * INFO * com.example.enterprisefall.service.CarService * addCar * 
+Added new car: com.example.enterprisefall.entity.Car@7f78c944
 
-2024-04-16 12:28:33,957 * INFO * com.example.enterprisefall.service.CarService * addCar * 
-Added new car: com.example.enterprisefall.entity.Car@429cb8f1
+2024-04-16 15:53:30,480 * INFO * com.example.enterprisefall.service.CarService * updateCar * 
+Admin updated Car with id: 6
+Model changed to: UPDATED
 
-2024-04-16 12:29:22,100 * INFO * com.example.enterprisefall.service.CarService * addCar * 
-Added new car: com.example.enterprisefall.entity.Car@4fb91c92
-
-2024-04-16 12:29:23,746 * ERROR * com.example.enterprisefall.service.CarService * addCar * Attempt to add a duplicate car with registration number: CIVIC123
-2024-04-16 12:30:40,230 * INFO * com.example.enterprisefall.service.CarService * addCar * 
-Added new car: com.example.enterprisefall.entity.Car@12fff927
-
-2024-04-16 12:30:42,872 * ERROR * com.example.enterprisefall.service.CarService * addCar * Attempt to add a duplicate car with registration number: CIVIC123
-2024-04-16 12:31:12,846 * INFO * com.example.enterprisefall.service.CarService * addCar * 
-Added new car: com.example.enterprisefall.entity.Car@783d84bc
+2024-04-16 15:53:50,871 * INFO * com.example.enterprisefall.service.CarService * updateCar * 
+Car not found with ID 7
 

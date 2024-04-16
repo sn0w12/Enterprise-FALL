@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -67,10 +68,10 @@ public class AdminController {
 //    // TODO
 //  }
 //
-//  @PutMapping("/updatecar")
-//  public ResponseEntity<Car> udpateCare(@RequestBody Car carToBeUpdated) {
-//    // TODO
-//  }
+  @PutMapping("/updatecar")
+  public ResponseEntity<String> updateCare(@RequestBody Car carToBeUpdated) {
+    return ResponseEntity.ok(carService.updateCar(carToBeUpdated));
+  }
 //
 //  @PutMapping("/updatecustomer")
 //  public ResponseEntity<Customer> updateCustomer(@RequestBody Customer customerToBeUpdated) {
