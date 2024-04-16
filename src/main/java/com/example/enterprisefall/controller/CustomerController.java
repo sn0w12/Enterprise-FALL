@@ -41,7 +41,7 @@ public class CustomerController {
 //  }
 
 
-                                  //Borde det inte vara remove customer?
+  //Borde det inte vara remove customer?
 //  @PutMapping("/cancelorder")
 //  public ResponseEntity<Booking> cancelBooking() {
 //    // TODO

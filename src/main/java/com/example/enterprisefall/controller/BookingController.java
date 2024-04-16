@@ -2,6 +2,8 @@ package com.example.enterprisefall.controller;
 
 import com.example.enterprisefall.entity.Booking;
 import com.example.enterprisefall.service.BookingService;
+// import com.example.enterprisefall.service.CarService;
+// import com.example.enterprisefall.service.CustomerService;
 import com.example.enterprisefall.service.CarService;
 import com.example.enterprisefall.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,7 +37,7 @@ public class BookingController {
 
     @PostMapping ("/DateBooked")
     public ResponseEntity<String> dateBooked(){
-        //Add booking based on ID
+        //Add booking based on ID and show date of when it is booked
         return null;
     }
 

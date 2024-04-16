@@ -1,7 +1,6 @@
 package com.example.enterprisefall.service;
 
 import com.example.enterprisefall.entity.Booking;
-import com.example.enterprisefall.entity.Car;
 import com.example.enterprisefall.repository.BookingRepository;
 import com.example.enterprisefall.repository.CarRepository;
 import com.example.enterprisefall.repository.CustomerRepository;
@@ -33,7 +32,7 @@ public class BookingService implements BookingServiceInterface {
 
   @Override
   public Booking getBookingById(long id) {
-    return null;
+    return bookingRepository.findById();
   }
 
   @Override
@@ -42,7 +41,15 @@ public class BookingService implements BookingServiceInterface {
   }
 
   @Override
+  public Booking addNewBookingDate(Booking booking) {
+    bookingRepository.save();
+      return booking;
+  }
+
+  @Override
   public void deleteBookingById(long id) {
+    bookingRepository.deleteById();
+
 
   }
 

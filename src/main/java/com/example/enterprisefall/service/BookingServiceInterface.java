@@ -10,6 +10,9 @@ public interface BookingServiceInterface {
     List<Booking> getAllBookings();
     Booking getBookingById(long id);
     Booking addNewBooking(Booking booking);
+
+    Booking addNewBookingDate(Booking booking);
+
     void deleteBookingById(long id);
     Booking updateBooking(long id, Booking booking);
 }
