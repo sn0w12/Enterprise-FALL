@@ -15,4 +15,3 @@ Added new car: com.example.enterprisefall.entity.Car@12fff927
 2024-04-16 12:31:12,846 * INFO * com.example.enterprisefall.service.CarService * addCar * 
 Added new car: com.example.enterprisefall.entity.Car@783d84bc
 
-2024-04-16 13:44:49,933 * INFO * com.example.enterprisefall.service.CustomerService * addCustomer * Added new customer: com.example.enterprisefall.entity.Customer@2f9d7aa4
