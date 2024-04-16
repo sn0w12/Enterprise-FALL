@@ -27,6 +27,8 @@ public class CustomerService {
   }
 
   public Customer addCustomer(Customer newCustomer) {
+    Customer savedCustomer = customerRepository.save(newCustomer);
+    logger.info("Added new customer: " + savedCustomer);
     return customerRepository.save(newCustomer);
   }
 }

@@ -1,3 +1,4 @@
+--Cars testdata
 INSERT INTO cars (brand, model, registration_number, price_per_day, is_booked) VALUES
 ('Toyota', 'Corolla', 'REG123', 55.0, false),
 ('Ford', 'Fiesta', 'REG124', 45.0, false),
@@ -11,6 +12,7 @@ INSERT INTO Booking (id, booking, booking_date, return_date, person_who_books, c
 (2, 'Booking2', '2024-04-18', '2024-04-25', 'Jane Smith', 'Honda Civic'),
 (3, 'Booking3', '2024-04-20', '2024-04-24', 'Alice Johnson', 'Ford Mustang');
 
+--Customer testdata
 INSERT INTO customers (username, name, address, email, phone_number) VALUES
 ('jdoe', 'John Doe', '1234 Elm Street', 'johndoe@example.com', '555-1234'),
 ('asmith', 'Alice Smith', '2345 Oak Street', 'alicesmith@example.com', '555-2345'),
