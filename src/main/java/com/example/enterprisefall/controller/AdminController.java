@@ -69,7 +69,7 @@ public class AdminController {
 //  }
 //
   @PutMapping("/updatecar")
-  public ResponseEntity<Car> udpateCare(@RequestBody Car carToBeUpdated) {
+  public ResponseEntity<String> updateCare(@RequestBody Car carToBeUpdated) {
     return ResponseEntity.ok(carService.updateCar(carToBeUpdated));
   }
 //
