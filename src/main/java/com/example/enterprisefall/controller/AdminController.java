@@ -76,12 +76,12 @@ public ResponseEntity<List<Booking>> listAllBookings() {
   public ResponseEntity<String> updateCare(@RequestBody Car carToBeUpdated) {
     return ResponseEntity.ok(carService.updateCar(carToBeUpdated));
   }
-//
-//  @PutMapping("/updatecustomer")
-//  public ResponseEntity<Customer> updateCustomer(@RequestBody Customer customerToBeUpdated) {
-//    // TODO
-//  }
-//
+
+  @PutMapping("/updatecustomer")
+  public ResponseEntity<String> updateCustomer(@RequestBody Customer customerToBeUpdated) {
+    return ResponseEntity.ok(customerService.updateCustomer(customerToBeUpdated));
+  }
+
   @DeleteMapping("/deletecar/{id}")
   public ResponseEntity<String> deleteCar(@PathVariable("id") int id) {
       carService.deleteCarById(id);
