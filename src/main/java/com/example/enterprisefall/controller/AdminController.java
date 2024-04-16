@@ -44,10 +44,10 @@ public class AdminController {
     this.bookingService = bookingService;
   }
 
-//  @PostMapping("/addcar")
-//  public ResponseEntity<Car> addCar(@RequestBody Car newCar) {
-//    // TODO
-//  }
+//@PostMapping("/addcar")
+//public ResponseEntity<Car> addCar(@RequestBody Car newCar) {
+// carService.
+//}
 //
 //  @PostMapping("/addcustomer")
 //  public ResponseEntity<Customer> addCustomer(@RequestBody Customer newCustomer) {

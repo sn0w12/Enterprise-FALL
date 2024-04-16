@@ -21,6 +21,7 @@ public class CarService {
   @Autowired
   public CarService(CarRepository carRepository) {
     this.carRepository = carRepository;
+
   }
 
   // Method to fetch all available (non-booked) cars
@@ -29,4 +30,10 @@ public class CarService {
             .filter(car -> !car.getIsBooked())
             .collect(Collectors.toList());
   }
+
+//  public void String save(){
+//
+//    logger.info("\nhej\n");
+//
+//  }
 }

@@ -27,15 +27,25 @@ public class BookingService implements BookingServiceInterface {
 
 
   //aktiva bookings
+//  @Override
+//  public List<Booking> getAllBookings() {
+//    return bookingRepository.findAll();
+//  }
+
   @Override
   public List<Booking> getAllBookings() {
-    return bookingRepository.findAll();
+    return null;
   }
 
   @Override
   public Booking getBookingById(long id) {
-    return bookingRepository.findById();
+    return null;
   }
+
+//  @Override
+//  public Booking getBookingById(long id) {
+//    return bookingRepository.findById();
+//  }
 
   @Override
   public Booking addNewBooking(Booking booking) {
@@ -44,13 +54,13 @@ public class BookingService implements BookingServiceInterface {
 
   @Override
   public Booking addNewBookingDate(Booking booking) {
-    bookingRepository.save();
+
       return booking;
   }
 
   @Override
   public void deleteBookingById(long id) {
-    bookingRepository.deleteById();
+
 
 
   }

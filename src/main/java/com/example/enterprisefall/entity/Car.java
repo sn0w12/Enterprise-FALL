@@ -2,12 +2,15 @@
 
 package com.example.enterprisefall.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Column;
-import jakarta.persistence.Table;
+//import jakarta.persistence.Entity;
+//import jakarta.persistence.GeneratedValue;
+//import jakarta.persistence.GenerationType;
+//import jakarta.persistence.Id;
+//import jakarta.persistence.Column;
+//import jakarta.persistence.Table;
+
+import jakarta.persistence.*;
+
 
 @Entity
 @Table(name = "cars")
@@ -17,19 +20,19 @@ public class Car {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(nullable = false)
+    @Column
     private String brand;
 
-    @Column(nullable = false)
+    @Column
     private String model;
 
-    @Column(nullable = false, unique = true)
+    @Column(unique = true)
     private String registrationNumber;
 
-    @Column(nullable = false)
+    @Column
     private Double pricePerDay;
 
-    @Column(nullable = false)
+    @Column
     private Boolean isBooked;
 
     public Car() {

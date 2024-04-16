@@ -58,7 +58,7 @@ public ResponseEntity<List<Car>> listAvailableCars() {
 //    // TODO
 //  }
 
-//  @GetMapping("/myorders")
+//  @GetMapping("/myorder")
 //  public ResponseEntity<List<Booking>> listOrdersForCustomer() {
 //    // TODO
 //  }

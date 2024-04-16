@@ -14,28 +14,43 @@ public class Booking {
     private Date BookingDate;
     private Date ReturnDate;
 
+//    private Car car;
+//    private Customer customer;
+
     // @OneToOne to their ID
-
-
-    private String PersonWhoBooks;
-    // ID of car booked
-    private String CarBooked;
-
-    @JoinColumn
-    private Customer customer;
 
     public Booking() {
 
     }
 
-    public Booking(Long id, String booking, Date bookingDate, Date returnDate, String personWhoBooks, String carBooked) {
+    public Booking(Long id, String booking, Date bookingDate, Date returnDate, Car car, Customer customer) {
         this.id = id;
         Booking = booking;
         BookingDate = bookingDate;
         ReturnDate = returnDate;
-        PersonWhoBooks = personWhoBooks;
-        CarBooked = carBooked;
+//        this.car = car;
+//        this.customer = customer;
     }
+
+    public String getBooking() {
+        return Booking;
+    }
+
+//    public Car getCar() {
+//        return car;
+//    }
+//
+//    public void setCar(Car car) {
+//        this.car = car;
+//    }
+//
+//    public Customer getCustomer() {
+//        return customer;
+//    }
+
+//    public void setCustomer(Customer customer) {
+//        this.customer = customer;
+//    }
 
     public String getAllBookings() {
         return Booking;
@@ -61,21 +76,15 @@ public class Booking {
         ReturnDate = returnDate;
     }
 
-    public String getPersonWhoBooks() {
-        return PersonWhoBooks;
-    }
 
-    public void setPersonWhoBooks(String personWhoBooks) {
-        PersonWhoBooks = personWhoBooks;
-    }
 
-    public String getCarBooked() {
-        return CarBooked;
-    }
-
-    public void setCarBooked(String carBooked) {
-        CarBooked = carBooked;
-    }
+//    public String getCarBooked() {
+//        return CarBooked;
+//    }
+//
+//    public void setCarBooked(String carBooked) {
+//        CarBooked = carBooked;
+//    }
 
     public void setId(Long id) {
         this.id = id;
