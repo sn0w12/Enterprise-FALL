@@ -68,10 +68,10 @@ public class AdminController {
 //    // TODO
 //  }
 //
-//  @PutMapping("/updatecar")
-//  public ResponseEntity<Car> udpateCare(@RequestBody Car carToBeUpdated) {
-//    // TODO
-//  }
+  @PutMapping("/updatecar")
+  public ResponseEntity<Car> udpateCare(@RequestBody Car carToBeUpdated) {
+    return ResponseEntity.ok(carService.updateCar(carToBeUpdated));
+  }
 //
 //  @PutMapping("/updatecustomer")
 //  public ResponseEntity<Customer> updateCustomer(@RequestBody Customer customerToBeUpdated) {

@@ -40,4 +40,53 @@ public class CarService {
         logger.info("\nAdded new car: " + savedCar + "\n");
         return savedCar;
     }
+
+    // Update Car
+    public Car updateCar(Car carToBeUpdated) {
+        Optional<Car> optionalCar = carRepository.findById(carToBeUpdated.getId());
+
+        StringBuilder updateMessage = new StringBuilder();
+
+        if (optionalCar.isPresent()) {
+
+            Car existingCar = optionalCar.get();
+
+            updateMessage.append("\nAdmin updated Car with id: " + existingCar.getId() + "\n");
+            if (carToBeUpdated.getPricePerDay() != 0 || carToBeUpdated.getPricePerDay() == existingCar.getPricePerDay()) {
+                existingCar.setPricePerDay(carToBeUpdated.getPricePerDay());
+                updateMessage.append("Price per day changed to: " + existingCar.getPricePerDay() + "\n");
+            }
+            if (carToBeUpdated.getBrand() != null && (!carToBeUpdated.getBrand().isEmpty() || !carToBeUpdated.getBrand().contains(existingCar.getBrand()))) {
+                existingCar.setBrand(carToBeUpdated.getBrand());
+                updateMessage.append("Manifacturer changed to: " + existingCar.getBrand() + "\n");
+            }
+            if (carToBeUpdated.getModel() != null && (!carToBeUpdated.getModel().isEmpty() || !carToBeUpdated.getModel().contains(existingCar.getModel()))) {
+                existingCar.setModel(carToBeUpdated.getModel());
+                updateMessage.append("Model changed to: " + existingCar.getModel() + "\n");
+            }
+            if (carToBeUpdated.getRegistrationNumber() != null && (!carToBeUpdated.getRegistrationNumber().isEmpty() || !carToBeUpdated.getRegistrationNumber().contains(existingCar.getRegistrationNumber()))) {
+                existingCar.setRegistrationNumber(carToBeUpdated.getRegistrationNumber());
+                updateMessage.append("Reg Nr changed to: " + existingCar.getRegistrationNumber() + "\n");
+            }
+            if (carToBeUpdated.getIsBooked() != null) {
+                if (!existingCar.getIsBooked() && carToBeUpdated.getIsBooked()) {
+                    existingCar.setIsBooked(true);
+                    updateMessage.append("Changed availability to: true\n");
+                } else if (existingCar.getIsBooked() && !carToBeUpdated.getIsBooked()) {
+                    existingCar.setIsBooked(false);
+                    updateMessage.append("Changed availability to: false\n");
+                }
+            } else {
+
+
+
+            }
+            logger.info(updateMessage);
+            carRepository.save(existingCar);
+        } else {
+            logger.info("\nWARN: Admin tried to update Car but nothing was updated on id: " + carToBeUpdated.getId() + "\n");
+        }
+
+        return optionalCar.orElseThrow();
+    }
 }
