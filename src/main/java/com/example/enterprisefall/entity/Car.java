@@ -1,3 +1,5 @@
+
+
 package com.example.enterprisefall.entity;
 
 import jakarta.persistence.Entity;
