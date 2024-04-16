@@ -1,13 +1,16 @@
-2024-04-16 15:53:28,235 * INFO * com.example.enterprisefall.service.CarService * addCar * 
-Added new car: com.example.enterprisefall.entity.Car@7f78c944
-
-2024-04-16 15:53:30,480 * INFO * com.example.enterprisefall.service.CarService * updateCar * 
-Admin updated Car with id: 6
+2024-04-16 20:15:41,513 * INFO * com.example.enterprisefall.service.CarService * updateCar * 
+Admin updated Car with id: 1
 Model changed to: UPDATED
 
-2024-04-16 15:53:50,871 * INFO * com.example.enterprisefall.service.CarService * updateCar * 
-Car not found with ID 7
+2024-04-16 20:16:16,726 * INFO * com.example.enterprisefall.service.CarService * updateCar * 
+Admin updated Car with id: 1
+Manifacturer changed to: Tesla
+Model changed to: Model S
 
-2024-04-16 19:56:00,691 * INFO * com.example.enterprisefall.service.CarService * findAllCars * 
-Admin gets list of all cars.
+2024-04-16 20:26:11,672 * INFO * com.example.enterprisefall.service.CustomerService * updateCustomer * 
+Admin updated Customer with id: 1
+Name changed to: testname
+
+2024-04-16 20:26:17,735 * ERROR * com.example.enterprisefall.service.CustomerService * updateCustomer * 
+ERROR: Customer not found with ID 7
 
