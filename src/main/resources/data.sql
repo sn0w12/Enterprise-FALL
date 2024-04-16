@@ -7,10 +7,10 @@ VALUES ('Toyota', 'Corolla', 'REG123', 55.0, false),
        ('BMW', '320i', 'REG127', 70.0, true);
 
 --Booking testdata
-INSERT INTO Booking (id, booking, booking_date, return_date, person_who_books, car_booked)
-VALUES (1, 'Booking1', '2024-04-16', '2024-04-20', 'John Doe', 'Toyota Camry'),
-       (2, 'Booking2', '2024-04-18', '2024-04-25', 'Jane Smith', 'Honda Civic'),
-       (3, 'Booking3', '2024-04-20', '2024-04-24', 'Alice Johnson', 'Ford Mustang');
+INSERT INTO Booking (id, booking, booking_date, return_date)
+VALUES (1, 'Booking1', '2024-04-16', '2024-04-20'),
+       (2, 'Booking2', '2024-04-18', '2024-04-25'),
+       (3, 'Booking3', '2024-04-20', '2024-04-24');
 
 --Customer testdata
 INSERT INTO customers (username, name, address, email, phone_number)
