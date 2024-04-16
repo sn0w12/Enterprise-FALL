@@ -1,5 +1,6 @@
 package com.example.enterprisefall.controller;
 
+import com.example.enterprisefall.entity.Booking;
 import com.example.enterprisefall.entity.Car;
 import com.example.enterprisefall.service.BookingService;
 import com.example.enterprisefall.service.CarService;
@@ -17,7 +18,7 @@ import java.util.List;
 //        • Lista tillgängliga bilar GET /api/v1/cars
 //• Beställa hyrbil POST /api/v1/ordercar
 //• Avboka PUT /api/v1/cancelorder
-//• Se tidigare och aktiva bokningar GET /api/v1/myorder
+
 
 
 @Controller
@@ -41,6 +42,7 @@ public class CustomerController {
         return ResponseEntity.ok(cars);
     }
 
+
 //  @PostMapping("/ordercar")
 //  public ResponseEntity<String> bookCar() {
 //    // TODO
@@ -53,8 +55,21 @@ public class CustomerController {
 //    // TODO
 //  }
 
-//  @GetMapping("/myorders")
-//  public ResponseEntity<List<Booking>> listOrdersForCustomer() {
-//    // TODO
-//  }
+
+//• Se tidigare och aktiva bokningar GET /api/v1/myorder
+//@GetMapping("/myorders")
+//public ResponseEntity<List<Booking>> listOrdersForCustomer() {
+//        //show getIsbooked and !getIsbooked
+
+
+
+
+
+
+
+
+
+
+
 }
+
