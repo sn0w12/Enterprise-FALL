@@ -8,6 +8,7 @@ import com.example.enterprisefall.entity.Customer;
 import com.example.enterprisefall.service.BookingService;
 import com.example.enterprisefall.service.CarService;
 import com.example.enterprisefall.service.CustomerService;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -36,6 +37,7 @@ public class AdminController {
   private CustomerService customerService;
   private CarService carService;
   private BookingService bookingService;
+  private Logger logger = Logger.getLogger(CustomerService.class);
 
   @Autowired
   public AdminController(CustomerService customerService, CarService carService, BookingService bookingService) {
@@ -49,12 +51,12 @@ public class AdminController {
     Car savedCar = carService.addCar(car);
     return ResponseEntity.ok(savedCar);
   }
-    @PostMapping("/addcustomer")
-    public ResponseEntity<Customer> addCustomer(@RequestBody Customer newCustomer) {
-        Customer savedCustomer = customerService.addCustomer(newCustomer);
-        logger.info("Added new customer: " + savedCustomer);
-        return ResponseEntity.ok(savedCustomer);
-    }
+  @PostMapping("/addcustomer")
+  public ResponseEntity<Customer> addCustomer(@RequestBody Customer newCustomer) {
+      Customer savedCustomer = customerService.addCustomer(newCustomer);
+      logger.info("Added new customer: " + savedCustomer);
+      return ResponseEntity.ok(savedCustomer);
+  }
 
   @GetMapping("/customers")
   public ResponseEntity<List<Customer>> getAllCustomers() {
