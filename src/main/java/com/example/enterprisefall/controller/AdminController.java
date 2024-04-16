@@ -23,8 +23,8 @@ import java.util.List;
 //• Uppdatera kund PUT /api/v1/updatecustomer
 //• Ta bort kund DELETE /api/v1/deletecustomer
 //• Lista samtliga bilar GET /api/v1/allcars
-
-
+//• Lista bokningar GET /api/v1/orders
+//• Ta bort bokning DELETE /api/v1/deleteorder
 
 
 @Controller
@@ -64,8 +64,7 @@ public class AdminController {
 //  public ResponseEntity<List<Car>> listAllCars() {
 //    // TODO
 //  }
-////
-// • Lista bokningar GET /api/v1/orders
+////• Lista bokningar GET /api/v1/orders
 @GetMapping("/orders")
 public ResponseEntity<List<Booking>> listAllBookings() {
     List<Booking> bookings = bookingService.getAllBookings();
@@ -88,18 +87,17 @@ public ResponseEntity<List<Booking>> listAllBookings() {
       return new ResponseEntity<>("Car " + id + " deleted!", HttpStatus.OK);
   }
 //
-//  @DeleteMapping("/deletecustomer")
-//  public ResponseEntity<String> deleteCustomer(@RequestBody Customer customerToBeDeleted) {
+  @DeleteMapping("/deletecustomer")
+  public ResponseEntity<String> deleteCustomer(@RequestBody Customer customerToBeDeleted) {
+
+        customerService.deleteCustomer(customerToBeDeleted.getId());
+
+        return new ResponseEntity<>("Customer " + customerToBeDeleted.getId() + " deleted!", HttpStatus.OK);
+
+  }
+
+//  @DeleteMapping("/deleteorder")
+//  public ResponseEntity<String> deleteBooking(@RequestBody Booking bookingToBeDeleted) {
 //    // TODO
 //  }
-//
-
-    //• Ta bort bokning DELETE /api/v1/deleteorder
-    //behövs justeras då den tar bort alla bokningar haha
-@DeleteMapping("/deleteorder/{id}")
-public ResponseEntity<String> deleteBooking(@PathVariable ("id") long id) {
-    bookingService.deleteBookingById(id);
-
-    return null;
-}
 }

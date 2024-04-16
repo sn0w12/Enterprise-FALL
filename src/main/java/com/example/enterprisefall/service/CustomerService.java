@@ -31,4 +31,12 @@ public class CustomerService {
     logger.info("Added new customer: " + savedCustomer);
     return customerRepository.save(newCustomer);
   }
+
+  public void deleteCustomer(int id) {
+        customerRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Customer with ID " + id + " does not exist."));
+        customerRepository.deleteById(id);
+        logger.info("Deleted customer with ID: " + id);
+    }
+
+
 }
