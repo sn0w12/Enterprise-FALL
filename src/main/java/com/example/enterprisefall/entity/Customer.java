@@ -1,5 +1,3 @@
-
-
 package com.example.enterprisefall.entity;
 
 import jakarta.persistence.*;
@@ -28,7 +26,8 @@ public class Customer {
     private String phoneNumber;
 
     // Constructors
-    public Customer() {}
+    public Customer() {
+    }
 
     public Customer(String username, String name, String address, String email, String phoneNumber) {
         this.username = username;
@@ -86,9 +85,6 @@ public class Customer {
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
-
-
-
 
 
 }

@@ -1,8 +1,5 @@
-
-
 package com.example.enterprisefall.controller;
 
-import com.example.enterprisefall.entity.Booking;
 import com.example.enterprisefall.entity.Car;
 import com.example.enterprisefall.entity.Customer;
 import com.example.enterprisefall.service.BookingService;
@@ -11,10 +8,9 @@ import com.example.enterprisefall.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Repository;
-import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 //Administratörer ska kunna göra ett antal aktiviteter med följande endpoints:
 //        • Lista kunder GET /api/v1/customers
@@ -33,28 +29,28 @@ import java.util.List;
 @RequestMapping("/api/v1/")
 public class AdminController {
 
-  private CustomerService customerService;
-  private CarService carService;
-  private BookingService bookingService;
+    private CustomerService customerService;
+    private CarService carService;
+    private BookingService bookingService;
 
-  @Autowired
-  public AdminController(CustomerService customerService, CarService carService, BookingService bookingService) {
-    this.customerService = customerService;
-    this.carService = carService;
-    this.bookingService = bookingService;
-  }
+    @Autowired
+    public AdminController(CustomerService customerService, CarService carService, BookingService bookingService) {
+        this.customerService = customerService;
+        this.carService = carService;
+        this.bookingService = bookingService;
+    }
 
-  @PostMapping("/addcar")
-  public ResponseEntity<Car> addCar(@RequestBody Car car) {
-    Car savedCar = carService.addCar(car);
-    return ResponseEntity.ok(savedCar);
-  }
+    @PostMapping("/addcar")
+    public ResponseEntity<Car> addCar(@RequestBody Car car) {
+        Car savedCar = carService.addCar(car);
+        return ResponseEntity.ok(savedCar);
+    }
 
-  @PostMapping("/addcustomer")
- public ResponseEntity<Customer> addCustomer(@RequestBody Customer newCustomer) {
-    Customer savedCustomer = customerService.addCustomer(newCustomer);
-    return ResponseEntity.ok(savedCustomer);
-  }
+    @PostMapping("/addcustomer")
+    public ResponseEntity<Customer> addCustomer(@RequestBody Customer newCustomer) {
+        Customer savedCustomer = customerService.addCustomer(newCustomer);
+        return ResponseEntity.ok(savedCustomer);
+    }
 
     @GetMapping("/customers")
     public ResponseEntity<List<Customer>> getAllCustomers() {
