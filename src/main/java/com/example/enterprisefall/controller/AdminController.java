@@ -1,5 +1,6 @@
 package com.example.enterprisefall.controller;
 
+import com.example.enterprisefall.entity.Booking;
 import com.example.enterprisefall.entity.Car;
 import com.example.enterprisefall.entity.Customer;
 import com.example.enterprisefall.service.BookingService;
@@ -63,12 +64,13 @@ public class AdminController {
 //  public ResponseEntity<List<Car>> listAllCars() {
 //    // TODO
 //  }
-//
-//  @GetMapping("/orders")
-//  public ResponseEntity<List<Booking>> listAllBookings() {
-//    // TODO
-//  }
-//
+////• Lista bokningar GET /api/v1/orders
+@GetMapping("/orders")
+public ResponseEntity<List<Booking>> listAllBookings() {
+    List<Booking> bookings = bookingService.getAllBookings();
+    return ResponseEntity.ok(bookings);
+ }
+
   @PutMapping("/updatecar")
   public ResponseEntity<String> updateCare(@RequestBody Car carToBeUpdated) {
     return ResponseEntity.ok(carService.updateCar(carToBeUpdated));
