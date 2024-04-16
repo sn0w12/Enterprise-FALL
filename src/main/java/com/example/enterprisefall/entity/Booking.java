@@ -32,7 +32,7 @@ public class Booking {
         CarBooked = carBooked;
     }
 
-    public String getBooking() {
+    public String getAllBookings() {
         return Booking;
     }
 

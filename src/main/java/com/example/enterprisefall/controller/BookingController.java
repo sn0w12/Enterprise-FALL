@@ -7,10 +7,7 @@ import com.example.enterprisefall.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -20,6 +17,7 @@ public class BookingController {
 
     private CustomerService customerService;
     private CarService carService;
+    @Autowired
     private BookingService bookingService;
 
     @Autowired
@@ -30,9 +28,9 @@ public class BookingController {
     }
 
     @GetMapping ("/Bookings")
-    public ResponseEntity<List<Booking>> getAllBookings(){
-        //return bookings based on ID
-        return null;
+    public List<Booking> getAllBookings(){
+        //return bookings based on number of booking
+        return bookingService.getAllBookings();
     }
 
     @PostMapping ("/DateBooked")
@@ -41,9 +39,11 @@ public class BookingController {
         return null;
     }
 
-    @PutMapping ("/cancelBooking")
+    @DeleteMapping("/cancelBooking")
     public ResponseEntity<Booking> cancelBooking(){
         //remove booking by ID
+
+
         return null;
     }
 
