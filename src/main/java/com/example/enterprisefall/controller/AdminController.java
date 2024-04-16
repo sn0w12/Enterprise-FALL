@@ -60,10 +60,11 @@ public class AdminController {
         return ResponseEntity.ok(customers);
     }
 
-//  @GetMapping("/allcars")
-//  public ResponseEntity<List<Car>> listAllCars() {
-//    // TODO
-//  }
+  @GetMapping("/allcars")
+  public ResponseEntity<List<Car>> listAllCars() {
+    return ResponseEntity.ok(carService.findAllCars());
+  }
+
 ////• Lista bokningar GET /api/v1/orders
 @GetMapping("/orders")
 public ResponseEntity<List<Booking>> listAllBookings() {

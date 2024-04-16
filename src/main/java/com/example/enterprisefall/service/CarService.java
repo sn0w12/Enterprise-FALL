@@ -28,6 +28,12 @@ public class CarService {
                 .collect(Collectors.toList());
     }
 
+    // get a list of all cars
+    public List<Car> findAllCars() {
+        logger.info("\nAdmin gets list of all cars.\n");
+        return carRepository.findAll();
+    }
+
     // Method to add a new car
     public Car addCar(Car newCar) {
         Optional<Car> existingCar = carRepository.findByRegistrationNumber(newCar.getRegistrationNumber());
