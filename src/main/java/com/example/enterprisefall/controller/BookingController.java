@@ -31,9 +31,10 @@ public class BookingController {
     }
 
     @GetMapping("/Bookings")
-    public List<Booking> getAllBookings() {
+    public ResponseEntity<List<Booking>> getAllBookings() {
         //return bookings based on number of booking
-        return bookingService.getAllBookings();
+        List<Booking> bookings = bookingService.getAllBookings();
+        return ResponseEntity.ok(bookings);
     }
 
     @PostMapping("/DateBooked")
@@ -45,7 +46,7 @@ public class BookingController {
     @DeleteMapping("/cancelBooking")
     public ResponseEntity<Booking> cancelBooking() {
         //remove booking by ID
-
+        //bookingService.deleteBookingById();
 
         return null;
     }
