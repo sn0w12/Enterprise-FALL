@@ -82,7 +82,7 @@ public class AdminController {
   @DeleteMapping("/deletecar/{id}")
   public ResponseEntity<String> deleteCar(@PathVariable("id") int id) {
       carService.deleteCarById(id);
-      return new ResponseEntity<>("Car deleted!", HttpStatus.OK);
+      return new ResponseEntity<>("Car " + id + " deleted!", HttpStatus.OK);
   }
 //
 //  @DeleteMapping("/deletecustomer")
