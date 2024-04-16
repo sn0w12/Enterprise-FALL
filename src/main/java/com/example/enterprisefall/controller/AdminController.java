@@ -87,11 +87,12 @@ public ResponseEntity<List<Booking>> listAllBookings() {
       return new ResponseEntity<>("Car " + id + " deleted!", HttpStatus.OK);
   }
 //
-//  @DeleteMapping("/deletecustomer")
-//  public ResponseEntity<String> deleteCustomer(@RequestBody Customer customerToBeDeleted) {
-//    // TODO
-//  }
-//
+  @DeleteMapping("/deletecustomer")
+  public ResponseEntity<String> deleteCustomer(@RequestBody Customer customerToBeDeleted) {
+        customerService.deleteCustomer(customerToBeDeleted.getId());
+        return new ResponseEntity<>("Customer " + customerToBeDeleted.getId() + " deleted!", HttpStatus.OK);
+  }
+
 //  @DeleteMapping("/deleteorder")
 //  public ResponseEntity<String> deleteBooking(@RequestBody Booking bookingToBeDeleted) {
 //    // TODO
