@@ -41,6 +41,11 @@ public class CarService {
         return savedCar;
     }
 
+    public void deleteCarById(int id) {
+        carRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Car with ID " + id + " does not exist."));
+        carRepository.deleteById(id);
+        logger.info("\nDeleted car with ID: " + id + "\n");
+
     // Update Car
     public String updateCar(Car carToBeUpdated) {
         Optional<Car> optionalCar = carRepository.findById(carToBeUpdated.getId());

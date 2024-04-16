@@ -6,6 +6,7 @@ import com.example.enterprisefall.service.BookingService;
 import com.example.enterprisefall.service.CarService;
 import com.example.enterprisefall.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -53,11 +54,12 @@ public class AdminController {
         return ResponseEntity.ok(savedCustomer);
     }
 
-//  @GetMapping("/customers")
-//  public ResponseEntity<List<Customer>> getAllCustomers() {
-//    // TODO
-//  }
-//
+    @GetMapping("/customers")
+    public ResponseEntity<List<Customer>> getAllCustomers() {
+        List<Customer> customers = customerService.getAllCustomers();
+        return ResponseEntity.ok(customers);
+    }
+
 //  @GetMapping("/allcars")
 //  public ResponseEntity<List<Car>> listAllCars() {
 //    // TODO
@@ -78,10 +80,11 @@ public class AdminController {
 //    // TODO
 //  }
 //
-//  @DeleteMapping("/deletecar")
-//  public ResponseEntity<String> deleteCar(@RequestBody Car carToBeDeleted) {
-//    // TODO
-//  }
+  @DeleteMapping("/deletecar/{id}")
+  public ResponseEntity<String> deleteCar(@PathVariable("id") int id) {
+      carService.deleteCarById(id);
+      return new ResponseEntity<>("Car " + id + " deleted!", HttpStatus.OK);
+  }
 //
 //  @DeleteMapping("/deletecustomer")
 //  public ResponseEntity<String> deleteCustomer(@RequestBody Customer customerToBeDeleted) {
