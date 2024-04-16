@@ -14,51 +14,55 @@ import java.util.Optional;
 @Service
 public class BookingService implements BookingServiceInterface {
 
-  private Logger logger = Logger.getLogger(BookingService.class);
-  private BookingRepository bookingRepository;
-  private CarRepository carRepository;
-  private CustomerRepository customerRepository;
+    private Logger logger = Logger.getLogger(BookingService.class);
+    private BookingRepository bookingRepository;
+    private CarRepository carRepository;
+    private CustomerRepository customerRepository;
 
-  @Autowired
-  public BookingService(BookingRepository bookingRepository, CarRepository carRepository, CustomerRepository customerRepository) {
-    this.bookingRepository = bookingRepository;
-    this.carRepository = carRepository;
-    this.customerRepository = customerRepository;
-  }
-
-
-  //aktiva bookings
-  @Override
-  public List<Booking> getAllBookings() {
-    return bookingRepository.findAll();
-  }
-
-  @Override
-  public Optional<Booking> getBookingById(long id) {
-    Optional<Booking> booking = bookingRepository.findById(id);
-    return booking;
-  }
-
-  @Override
-  public Booking addNewBooking(Booking booking) {
-    return null;
-  }
-
-  @Override
-  public Booking addNewBookingDate(Booking booking) {
-    return bookingRepository.save(booking);
-  }
-
-  @Override
-  public void deleteBookingById(long id) {
-    bookingRepository.deleteById(id);
-  }
-
-  @Override
-  public Booking updateBooking(long id, Booking booking) {
-    return null;
-  }
+    @Autowired
+    public BookingService(BookingRepository bookingRepository, CarRepository carRepository, CustomerRepository customerRepository) {
+        this.bookingRepository = bookingRepository;
+        this.carRepository = carRepository;
+        this.customerRepository = customerRepository;
+    }
 
 
-  // METODER
+    //aktiva bookings
+    @Override
+    public List<Booking> getAllBookings() {
+
+        return bookingRepository.findAll();
+
+    }
+
+    @Override
+    public Optional<Booking> getBookingById(long id) {
+        Optional<Booking> booking = bookingRepository.findById(id);
+        return booking;
+    }
+
+    @Override
+    public Booking addNewBooking(Booking booking) {
+        return null;
+    }
+
+    @Override
+    public Booking addNewBookingDate(Booking booking) {
+        return bookingRepository.save(booking);
+    }
+
+    @Override
+    public void deleteBookingById(long id) {
+        bookingRepository.deleteById(id);
+        logger.info("\nDeleted booking with ID: " + id + "\n");
+    }
+
+    @Override
+    public Booking updateBooking(long id, Booking booking) {
+        return null;
+    }
+
+
+
+    // METODER
 }

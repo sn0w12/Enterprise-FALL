@@ -9,8 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
@@ -20,8 +18,6 @@ import java.util.List;
 //        • Lista tillgängliga bilar GET /api/v1/cars
 //• Beställa hyrbil POST /api/v1/ordercar
 //• Avboka PUT /api/v1/cancelorder
-//• Se tidigare och aktiva bokningar GET /api/v1/myorder
-
 
 
 
@@ -29,22 +25,23 @@ import java.util.List;
 @RequestMapping("/api/v1/")
 public class CustomerController {
 
-  private CustomerService customerService;
-  private CarService carService;
-  private BookingService bookingService;
+    private CustomerService customerService;
+    private CarService carService;
+    private BookingService bookingService;
 
-  @Autowired
-  public CustomerController(CustomerService customerService, CarService carService, BookingService bookingService) {
-    this.customerService = customerService;
-    this.carService = carService;
-    this.bookingService = bookingService;
-  }
+    @Autowired
+    public CustomerController(CustomerService customerService, CarService carService, BookingService bookingService) {
+        this.customerService = customerService;
+        this.carService = carService;
+        this.bookingService = bookingService;
+    }
 
-@GetMapping("/cars")
-public ResponseEntity<List<Car>> listAvailableCars() {
-  List<Car> cars = carService.findAllAvailableCars();
-  return ResponseEntity.ok(cars);
-}
+    @GetMapping("/cars")
+    public ResponseEntity<List<Car>> listAvailableCars() {
+        List<Car> cars = carService.findAllAvailableCars();
+        return ResponseEntity.ok(cars);
+    }
+
 
 //  @PostMapping("/ordercar")
 //  public ResponseEntity<String> bookCar() {
@@ -52,14 +49,27 @@ public ResponseEntity<List<Car>> listAvailableCars() {
 //  }
 
 
-  //Borde det inte vara remove customer?
+    //Borde det inte vara remove customer?
 //  @PutMapping("/cancelorder")
 //  public ResponseEntity<Booking> cancelBooking() {
 //    // TODO
 //  }
 
-//  @GetMapping("/myorders")
-//  public ResponseEntity<List<Booking>> listOrdersForCustomer() {
-//    // TODO
-//  }
+
+//• Se tidigare och aktiva bokningar GET /api/v1/myorder
+//@GetMapping("/myorders")
+//public ResponseEntity<List<Booking>> listOrdersForCustomer() {
+//        //show getIsbooked and !getIsbooked
+
+
+
+
+
+
+
+
+
+
+
 }
+

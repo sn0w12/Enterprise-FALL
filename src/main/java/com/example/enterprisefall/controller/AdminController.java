@@ -1,5 +1,3 @@
-
-
 package com.example.enterprisefall.controller;
 
 import com.example.enterprisefall.entity.Booking;
@@ -9,9 +7,9 @@ import com.example.enterprisefall.service.BookingService;
 import com.example.enterprisefall.service.CarService;
 import com.example.enterprisefall.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -25,72 +23,83 @@ import java.util.List;
 //• Uppdatera kund PUT /api/v1/updatecustomer
 //• Ta bort kund DELETE /api/v1/deletecustomer
 //• Lista samtliga bilar GET /api/v1/allcars
-//• Lista bokningar GET /api/v1/orders
-//• Ta bort bokning DELETE /api/v1/deleteorder
+
+
 
 
 @Controller
 @RequestMapping("/api/v1/")
 public class AdminController {
 
-  private CustomerService customerService;
-  private CarService carService;
-  private BookingService bookingService;
+    private CustomerService customerService;
+    private CarService carService;
+    private BookingService bookingService;
 
-  @Autowired
-  public AdminController(CustomerService customerService, CarService carService, BookingService bookingService) {
-    this.customerService = customerService;
-    this.carService = carService;
-    this.bookingService = bookingService;
-  }
+    @Autowired
+    public AdminController(CustomerService customerService, CarService carService, BookingService bookingService) {
+        this.customerService = customerService;
+        this.carService = carService;
+        this.bookingService = bookingService;
+    }
 
-//  @PostMapping("/addcar")
-//  public ResponseEntity<Car> addCar(@RequestBody Car newCar) {
-//    // TODO
-//  }
-//
-//  @PostMapping("/addcustomer")
-//  public ResponseEntity<Customer> addCustomer(@RequestBody Customer newCustomer) {
-//    // TODO
-//  }
-//
-//  @GetMapping("/customers")
-//  public ResponseEntity<List<Customer>> getAllCustomers() {
-//    // TODO
-//  }
-//
+    @PostMapping("/addcar")
+    public ResponseEntity<Car> addCar(@RequestBody Car car) {
+        Car savedCar = carService.addCar(car);
+        return ResponseEntity.ok(savedCar);
+    }
+
+    @PostMapping("/addcustomer")
+    public ResponseEntity<Customer> addCustomer(@RequestBody Customer newCustomer) {
+        Customer savedCustomer = customerService.addCustomer(newCustomer);
+        return ResponseEntity.ok(savedCustomer);
+    }
+
+    @GetMapping("/customers")
+    public ResponseEntity<List<Customer>> getAllCustomers() {
+        List<Customer> customers = customerService.getAllCustomers();
+        return ResponseEntity.ok(customers);
+    }
+
 //  @GetMapping("/allcars")
 //  public ResponseEntity<List<Car>> listAllCars() {
 //    // TODO
 //  }
-//
-//  @GetMapping("/orders")
-//  public ResponseEntity<List<Booking>> listAllBookings() {
-//    // TODO
-//  }
-//
-//  @PutMapping("/updatecar")
-//  public ResponseEntity<Car> udpateCare(@RequestBody Car carToBeUpdated) {
-//    // TODO
-//  }
+////
+// • Lista bokningar GET /api/v1/orders
+@GetMapping("/orders")
+public ResponseEntity<List<Booking>> listAllBookings() {
+    List<Booking> bookings = bookingService.getAllBookings();
+    return ResponseEntity.ok(bookings);
+ }
+
+  @PutMapping("/updatecar")
+  public ResponseEntity<String> updateCare(@RequestBody Car carToBeUpdated) {
+    return ResponseEntity.ok(carService.updateCar(carToBeUpdated));
+  }
 //
 //  @PutMapping("/updatecustomer")
 //  public ResponseEntity<Customer> updateCustomer(@RequestBody Customer customerToBeUpdated) {
 //    // TODO
 //  }
 //
-//  @DeleteMapping("/deletecar")
-//  public ResponseEntity<String> deleteCar(@RequestBody Car carToBeDeleted) {
-//    // TODO
-//  }
+  @DeleteMapping("/deletecar/{id}")
+  public ResponseEntity<String> deleteCar(@PathVariable("id") int id) {
+      carService.deleteCarById(id);
+      return new ResponseEntity<>("Car " + id + " deleted!", HttpStatus.OK);
+  }
 //
 //  @DeleteMapping("/deletecustomer")
 //  public ResponseEntity<String> deleteCustomer(@RequestBody Customer customerToBeDeleted) {
 //    // TODO
 //  }
 //
-//  @DeleteMapping("/deleteorder")
-//  public ResponseEntity<String> deleteBooking(@RequestBody Booking bookingToBeDeleted) {
-//    // TODO
-//  }
+
+    //• Ta bort bokning DELETE /api/v1/deleteorder
+    //behövs justeras då den tar bort alla bokningar haha
+@DeleteMapping("/deleteorder/{id}")
+public ResponseEntity<String> deleteBooking(@PathVariable ("id") long id) {
+    bookingService.deleteBookingById(id);
+
+    return null;
+}
 }
