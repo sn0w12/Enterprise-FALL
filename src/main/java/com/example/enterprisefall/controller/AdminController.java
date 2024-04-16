@@ -56,11 +56,12 @@ public class AdminController {
     return ResponseEntity.ok(savedCustomer);
   }
 
-//  @GetMapping("/customers")
-//  public ResponseEntity<List<Customer>> getAllCustomers() {
-//    // TODO
-//  }
-//
+    @GetMapping("/customers")
+    public ResponseEntity<List<Customer>> getAllCustomers() {
+        List<Customer> customers = customerService.getAllCustomers();
+        return ResponseEntity.ok(customers);
+    }
+
 //  @GetMapping("/allcars")
 //  public ResponseEntity<List<Car>> listAllCars() {
 //    // TODO
