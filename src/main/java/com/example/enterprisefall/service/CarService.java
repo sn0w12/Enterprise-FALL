@@ -44,6 +44,6 @@ public class CarService {
     public void deleteCarById(int id) {
         carRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Car with ID " + id + " does not exist."));
         carRepository.deleteById(id);
-        logger.info("Deleted car with ID: " + id);
+        logger.info("\nDeleted car with ID: " + id + "\n");
     }
 }
