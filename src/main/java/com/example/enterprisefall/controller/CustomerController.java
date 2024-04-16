@@ -40,6 +40,8 @@ public class CustomerController {
 //    // TODO
 //  }
 
+
+                                  //Borde det inte vara remove customer?
 //  @PutMapping("/cancelorder")
 //  public ResponseEntity<Booking> cancelBooking() {
 //    // TODO
