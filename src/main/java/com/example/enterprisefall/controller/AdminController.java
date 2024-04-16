@@ -49,12 +49,14 @@ public class AdminController {
     Car savedCar = carService.addCar(car);
     return ResponseEntity.ok(savedCar);
   }
-//
-//  @PostMapping("/addcustomer")
-//  public ResponseEntity<Customer> addCustomer(@RequestBody Customer newCustomer) {
-//    // TODO
-//  }
-//
+
+  @PostMapping("/addcustomer")
+ public ResponseEntity<Customer> addCustomer(@RequestBody Customer newCustomer) {
+    Customer savedCustomer = customerService.addCustomer(newCustomer);
+    logger.info("Added new customer: " + savedCustomer);
+    return ResponseEntity.ok(savedCustomer);
+  }
+
 //  @GetMapping("/customers")
 //  public ResponseEntity<List<Customer>> getAllCustomers() {
 //    // TODO
