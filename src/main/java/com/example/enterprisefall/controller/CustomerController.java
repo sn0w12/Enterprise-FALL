@@ -40,10 +40,11 @@ public class CustomerController {
     this.bookingService = bookingService;
   }
 
-//  @GetMapping("/cars")
-//  public ResponseEntity<List<Car>> getAllCars() {
-//    // TODO
-//  }
+@GetMapping("/cars")
+public ResponseEntity<List<Car>> listAvailableCars() {
+  List<Car> cars = carService.findAllAvailableCars();
+  return ResponseEntity.ok(cars);
+}
 
 //  @PostMapping("/ordercar")
 //  public ResponseEntity<String> bookCar() {
