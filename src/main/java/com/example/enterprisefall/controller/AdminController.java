@@ -6,12 +6,10 @@ import com.example.enterprisefall.service.BookingService;
 import com.example.enterprisefall.service.CarService;
 import com.example.enterprisefall.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -81,10 +79,11 @@ public class AdminController {
 //    // TODO
 //  }
 //
-//  @DeleteMapping("/deletecar")
-//  public ResponseEntity<String> deleteCar(@RequestBody Car carToBeDeleted) {
-//    // TODO
-//  }
+  @DeleteMapping("/deletecar/{id}")
+  public ResponseEntity<String> deleteCar(@PathVariable("id") int id) {
+      carService.deleteCarById(id);
+      return new ResponseEntity<>("Car deleted!", HttpStatus.OK);
+  }
 //
 //  @DeleteMapping("/deletecustomer")
 //  public ResponseEntity<String> deleteCustomer(@RequestBody Customer customerToBeDeleted) {
