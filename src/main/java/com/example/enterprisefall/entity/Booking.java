@@ -21,8 +21,8 @@ public class Booking {
     // ID of car booked
     private String CarBooked;
 
-    @JoinColumn
-    private Customer customer;
+//    @JoinColumn
+//    private Customer customer;
 
     public Booking() {
 
