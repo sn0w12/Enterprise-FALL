@@ -21,6 +21,9 @@ public class CustomerService {
 
   // METODER
 
+  public Customer addCustomer(Customer newCustomer) {
+    return customerRepository.save(newCustomer);
+  }
 
 
 
