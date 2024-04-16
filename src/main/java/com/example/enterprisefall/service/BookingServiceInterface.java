@@ -4,11 +4,12 @@ import com.example.enterprisefall.entity.Booking;
 
 
 import java.util.List;
+import java.util.Optional;
 
 
 public interface BookingServiceInterface {
     List<Booking> getAllBookings();
-    Booking getBookingById(long id);
+    Optional<Booking> getBookingById(long id);
     Booking addNewBooking(Booking booking);
 
     Booking addNewBookingDate(Booking booking);

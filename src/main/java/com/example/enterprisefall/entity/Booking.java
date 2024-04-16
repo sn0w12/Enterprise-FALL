@@ -11,18 +11,18 @@ public class Booking {
     private Long id;
     @Column
     private String Booking;
+    @Column
     private Date BookingDate;
+    @Column
     private Date ReturnDate;
 
     // @OneToOne to their ID
 
-
+    @Column
     private String PersonWhoBooks;
     // ID of car booked
+    @Column
     private String CarBooked;
-
-//    @JoinColumn
-//    private Customer customer;
 
     public Booking() {
 
