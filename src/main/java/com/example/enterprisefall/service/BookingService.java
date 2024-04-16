@@ -25,6 +25,8 @@ public class BookingService implements BookingServiceInterface {
     this.customerRepository = customerRepository;
   }
 
+
+  //aktiva bookings
   @Override
   public List<Booking> getAllBookings() {
     return bookingRepository.findAll();

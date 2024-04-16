@@ -16,6 +16,19 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+//Administratörer ska kunna göra ett antal aktiviteter med följande endpoints:
+//        • Lista kunder GET /api/v1/customers
+//• Lägga till fordon POST /api/v1/addcar
+//• Ta bort fordon DELETE /api/v1/deletecar
+//• Uppdatera fordon PUT /api/v1/updatecar
+//• Lägga till kund POST /api/v1/addcustomer
+//• Uppdatera kund PUT /api/v1/updatecustomer
+//• Ta bort kund DELETE /api/v1/deletecustomer
+//• Lista samtliga bilar GET /api/v1/allcars
+//• Lista bokningar GET /api/v1/orders
+//• Ta bort bokning DELETE /api/v1/deleteorder
+
+
 @Controller
 @RequestMapping("/api/v1/")
 public class AdminController {

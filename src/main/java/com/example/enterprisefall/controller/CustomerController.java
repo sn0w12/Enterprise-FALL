@@ -15,6 +15,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 
+
+//Kunderna ska kunna göra ett antal aktiviteter med följande endpoints:
+//        • Lista tillgängliga bilar GET /api/v1/cars
+//• Beställa hyrbil POST /api/v1/ordercar
+//• Avboka PUT /api/v1/cancelorder
+//• Se tidigare och aktiva bokningar GET /api/v1/myorder
+
+
+
+
 @Controller
 @RequestMapping("/api/v1/")
 public class CustomerController {

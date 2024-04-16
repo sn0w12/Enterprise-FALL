@@ -15,9 +15,14 @@ public class Booking {
     private Date ReturnDate;
 
     // @OneToOne to their ID
+
+
     private String PersonWhoBooks;
     // ID of car booked
     private String CarBooked;
+
+    @JoinColumn
+    private Customer customer;
 
     public Booking() {
 
