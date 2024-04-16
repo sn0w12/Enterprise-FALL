@@ -36,6 +36,7 @@ public class AdminController {
   private CustomerService customerService;
   private CarService carService;
   private BookingService bookingService;
+  private logger logger;
 
   @Autowired
   public AdminController(CustomerService customerService, CarService carService, BookingService bookingService) {
@@ -53,7 +54,6 @@ public class AdminController {
   @PostMapping("/addcustomer")
  public ResponseEntity<Customer> addCustomer(@RequestBody Customer newCustomer) {
     Customer savedCustomer = customerService.addCustomer(newCustomer);
-    logger.info("Added new customer: " + savedCustomer);
     return ResponseEntity.ok(savedCustomer);
   }
 

@@ -2,6 +2,7 @@
 
 package com.example.enterprisefall.service;
 
+import com.example.enterprisefall.entity.Customer;
 import com.example.enterprisefall.repository.CustomerRepository;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,8 @@ public class CustomerService {
   // METODER
 
   public Customer addCustomer(Customer newCustomer) {
+    Customer savedCustomer = customerRepository.save(newCustomer);
+    logger.info("Added new customer: " + savedCustomer);
     return customerRepository.save(newCustomer);
   }
 
