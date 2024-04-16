@@ -36,7 +36,6 @@ public class AdminController {
   private CustomerService customerService;
   private CarService carService;
   private BookingService bookingService;
-  private logger logger;
 
   @Autowired
   public AdminController(CustomerService customerService, CarService carService, BookingService bookingService) {
