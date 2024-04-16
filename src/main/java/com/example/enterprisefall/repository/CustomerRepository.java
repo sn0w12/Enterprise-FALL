@@ -1,5 +1,3 @@
-
-
 package com.example.enterprisefall.repository;
 
 import com.example.enterprisefall.entity.Customer;
