@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
@@ -50,10 +52,14 @@ public class CustomerController {
 
 
     //Borde det inte vara remove customer?
-//  @PutMapping("/cancelorder")
-//  public ResponseEntity<Booking> cancelBooking() {
-//    // TODO
-//  }
+  @PutMapping("/cancelorder")
+  public ResponseEntity<String> cancelBooking(@RequestBody Booking booking) {
+
+        bookingService.deleteBookingById(booking.getId());
+
+        return ResponseEntity.ok("Booking cancelled");
+
+    }
 
 
 //• Se tidigare och aktiva bokningar GET /api/v1/myorder
