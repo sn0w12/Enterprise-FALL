@@ -53,6 +53,7 @@ public class BookingService implements BookingServiceInterface {
 
     @Override
     public void deleteBookingById(long id) {
+        bookingRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Booking with ID " + id + " does not exist."));
         bookingRepository.deleteById(id);
         logger.info("\nDeleted booking with ID: " + id + "\n");
     }
