@@ -38,7 +38,7 @@ public class CarService {
     public Car addCar(Car newCar) {
         Optional<Car> existingCar = carRepository.findByRegistrationNumber(newCar.getRegistrationNumber());
         if (existingCar.isPresent()) {
-            logger.error("Attempt to add a duplicate car with registration number: " + newCar.getRegistrationNumber());
+            logger.error("\nAttempt to add a duplicate car with registration number: " + newCar.getRegistrationNumber() + "\n");
             throw new IllegalArgumentException("Car with registration number " + newCar.getRegistrationNumber() + " already exists.");
         }
 
