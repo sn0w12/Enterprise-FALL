@@ -2,6 +2,7 @@ package com.example.enterprisefall.controller;
 
 import com.example.enterprisefall.entity.Booking;
 import com.example.enterprisefall.entity.Car;
+import com.example.enterprisefall.entity.Customer;
 import com.example.enterprisefall.service.BookingService;
 import com.example.enterprisefall.service.CarService;
 import com.example.enterprisefall.service.CustomerService;
@@ -9,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
@@ -43,11 +46,11 @@ public class CustomerController {
     }
 
 
-//  @PostMapping("/ordercar")
-//  public ResponseEntity<String> bookCar() {
-//    // TODO
-//  }
-
+    @PostMapping("/ordercar")
+    public ResponseEntity<Customer> orderCar(@RequestBody Customer newOrder) {
+        Customer newOrder1 = customerService.newOrder(newOrder);
+        return ResponseEntity.ok(newOrder1);
+    }
 
     //Borde det inte vara remove customer?
 //  @PutMapping("/cancelorder")
@@ -56,20 +59,12 @@ public class CustomerController {
 //  }
 
 
-//• Se tidigare och aktiva bokningar GET /api/v1/myorder
-//@GetMapping("/myorders")
-//public ResponseEntity<List<Booking>> listOrdersForCustomer() {
-//        //show getIsbooked and !getIsbooked
+    //• Se tidigare och aktiva bokningar GET /api/v1/myorder
+    @GetMapping("/myorders")
+    public ResponseEntity<List<Booking>> listOrdersForCustomer() {
+        //show getIsbooked and !getIsbooked
+        List<Booking> orders = customerService.getOrders()
+        return ResponseEntity.ok(orders);
 
-
-
-
-
-
-
-
-
-
-
+    }
 }
-

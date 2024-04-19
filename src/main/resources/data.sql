@@ -8,9 +8,9 @@ VALUES ('Toyota', 'Corolla', 'REG123', 55.0, false),
 
 --Booking testdata
 INSERT INTO Booking (id, booking, booking_date, return_date)
-VALUES (1, 'Booking1', '2024-04-16', '2024-04-20'),
-       (2, 'Booking2', '2024-04-18', '2024-04-25'),
-       (3, 'Booking3', '2024-04-20', '2024-04-24');
+VALUES (1, 'Booking 1', '2024-04-16', '2024-04-20'),
+       (2, 'Booking 2', '2024-04-18', '2024-04-25'),
+       (3, 'Booking 3', '2024-04-20', '2024-04-24');
 
 --Customer testdata
 INSERT INTO customers (username, name, address, email, phone_number)

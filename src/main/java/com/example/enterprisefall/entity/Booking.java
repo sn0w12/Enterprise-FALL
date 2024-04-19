@@ -53,7 +53,7 @@ public class Booking {
         BookingDate = bookingDate;
     }
 
-    public Date getReturnDate() {
+    public Date getReturnDate(Date date) {
         return ReturnDate;
     }
 
