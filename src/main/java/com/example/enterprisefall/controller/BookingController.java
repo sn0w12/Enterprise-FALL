@@ -43,13 +43,6 @@ public class BookingController {
         return null;
     }
 
-    @DeleteMapping("/cancelBooking")
-    public ResponseEntity<Booking> cancelBooking() {
-        //remove booking by ID
-        //bookingService.deleteBookingById();
-
-        return null;
-    }
 
 
 }

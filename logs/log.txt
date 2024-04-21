@@ -14,3 +14,91 @@ Name changed to: testname
 2024-04-16 20:26:17,735 * ERROR * com.example.enterprisefall.service.CustomerService * updateCustomer * 
 ERROR: Customer not found with ID 7
 
+2024-04-21 22:48:22,035 * INFO * com.example.enterprisefall.service.CarService * updateCar * 
+Admin updated Car with id: 1
+Price per day changed to: 45.0
+Manifacturer changed to: Ford
+Model changed to: Fiesta
+Reg Nr changed to: REG124
+Changed availability to: true
+
+2024-04-21 22:50:07,193 * INFO * com.example.enterprisefall.service.CarService * updateCar * 
+Admin updated Car with id: 1
+Price per day changed to: 45.0
+Manifacturer changed to: Ford
+Model changed to: Fiesta
+Reg Nr changed to: REG124
+Changed availability to: true
+
+2024-04-21 22:51:32,085 * INFO * com.example.enterprisefall.service.CarService * updateCar * 
+Admin updated Car with id: 1
+Price per day changed to: 45.0
+Manifacturer changed to: Ford
+Model changed to: Fiesta
+Reg Nr changed to: REG124
+Changed availability to: true
+
+2024-04-21 22:53:11,010 * INFO * com.example.enterprisefall.service.CarService * updateCar * 
+Admin updated Car with id: 1
+Price per day changed to: 45.0
+Manifacturer changed to: Ford
+Model changed to: Fiesta
+Reg Nr changed to: REG124
+Changed availability to: true
+
+2024-04-21 22:53:42,431 * INFO * com.example.enterprisefall.service.CarService * updateCar * 
+Admin updated Car with id: 1
+Price per day changed to: 45.0
+Manifacturer changed to: Ford
+Model changed to: Fiesta
+Reg Nr changed to: REG124
+Changed availability to: true
+
+2024-04-21 22:55:23,435 * INFO * com.example.enterprisefall.service.CarService * updateCar * 
+Admin updated Car with id: 1
+Price per day changed to: 45.0
+Manifacturer changed to: Ford
+Model changed to: Fiesta
+Reg Nr changed to: REG124
+Changed availability to: true
+
+2024-04-21 22:56:20,841 * INFO * com.example.enterprisefall.service.CarService * updateCar * 
+Admin updated Car with id: 1
+Price per day changed to: 45.0
+Manifacturer changed to: Ford
+Model changed to: Fiesta
+Reg Nr changed to: REG124
+Changed availability to: true
+
+2024-04-21 22:56:24,430 * INFO * com.example.enterprisefall.service.CarService * updateCar * 
+Admin updated Car with id: 1
+Price per day changed to: 45.0
+Manifacturer changed to: Ford
+Model changed to: Fiesta
+Reg Nr changed to: REG124
+Changed availability to: true
+
+2024-04-21 23:00:00,948 * INFO * com.example.enterprisefall.service.CarService * updateCar * 
+Admin updated Car with id: 1
+Price per day changed to: 45.0
+Manifacturer changed to: Ford
+Model changed to: Fiesta
+Reg Nr changed to: REG124
+Changed availability to: true
+
+2024-04-21 23:11:29,680 * INFO * com.example.enterprisefall.service.CarService * updateCar * 
+Admin updated Car with id: 1
+Price per day changed to: 45.0
+Manifacturer changed to: Ford
+Model changed to: Fiesta
+Reg Nr changed to: REG124
+Changed availability to: true
+
+2024-04-21 23:17:54,370 * INFO * com.example.enterprisefall.service.CarService * updateCar * 
+Admin updated Car with id: 1
+Price per day changed to: 45.0
+Manifacturer changed to: Ford
+Model changed to: Fiesta
+Reg Nr changed to: REG124
+Changed availability to: true
+

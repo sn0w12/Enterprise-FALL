@@ -73,8 +73,8 @@ public ResponseEntity<List<Booking>> listAllBookings() {
  }
 
   @PutMapping("/updatecar")
-  public ResponseEntity<String> updateCare(@RequestBody Car carToBeUpdated) {
-    return ResponseEntity.ok(carService.updateCar(carToBeUpdated));
+  public ResponseEntity<String> updateCare(@PathVariable("carId") int carId, @RequestBody Car carToBeUpdated) {
+    return ResponseEntity.ok(carService.updateCar(carId, carToBeUpdated));
   }
 
   @PutMapping("/updatecustomer")

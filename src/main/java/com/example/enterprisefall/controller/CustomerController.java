@@ -2,16 +2,14 @@ package com.example.enterprisefall.controller;
 
 import com.example.enterprisefall.entity.Booking;
 import com.example.enterprisefall.entity.Car;
+import com.example.enterprisefall.entity.Customer;
 import com.example.enterprisefall.service.BookingService;
 import com.example.enterprisefall.service.CarService;
 import com.example.enterprisefall.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -30,6 +28,7 @@ public class CustomerController {
     private CustomerService customerService;
     private CarService carService;
     private BookingService bookingService;
+    private Car car;
 
     @Autowired
     public CustomerController(CustomerService customerService, CarService carService, BookingService bookingService) {
@@ -45,10 +44,11 @@ public class CustomerController {
     }
 
 
-//  @PostMapping("/ordercar")
-//  public ResponseEntity<String> bookCar() {
-//    // TODO
-//  }
+    @PostMapping("/ordercar")
+    public ResponseEntity<String> orderCar(@RequestParam("customerId") int customerId, @RequestParam("carId") int carId) {
+        String bookingResult = customerService.orderCar(customerId, carId);
+        return ResponseEntity.ok(bookingResult);
+    }
 
 
     //Borde det inte vara remove customer?

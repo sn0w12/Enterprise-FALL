@@ -16,6 +16,7 @@ public class CarService {
     private Logger logger = Logger.getLogger(CarService.class);
     private CarRepository carRepository;
 
+
     @Autowired
     public CarService(CarRepository carRepository) {
         this.carRepository = carRepository;
@@ -54,7 +55,7 @@ public class CarService {
     }
 
     // Update Car
-    public String updateCar(Car carToBeUpdated) {
+    public String updateCar(int carId, Car carToBeUpdated) {
         Optional<Car> optionalCar = carRepository.findById(carToBeUpdated.getId());
 
         StringBuilder updateMessage = new StringBuilder();

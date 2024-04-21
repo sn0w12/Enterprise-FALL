@@ -2,6 +2,7 @@ package com.example.enterprisefall.entity;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -12,7 +13,7 @@ public class Booking {
     @Column
     private String Booking;
     @Column
-    private Date BookingDate;
+    private LocalDate BookingDate;
     @Column
     private Date ReturnDate;
 
@@ -29,7 +30,7 @@ public class Booking {
 
     }
 
-    public Booking(Long id, String booking, Date bookingDate, Date returnDate, String carBooked) {
+    public Booking(Long id, String booking, LocalDate bookingDate, Date returnDate, String carBooked) {
         this.id = id;
         Booking = booking;
         BookingDate = bookingDate;
@@ -45,11 +46,11 @@ public class Booking {
         Booking = booking;
     }
 
-    public Date getBookingDate() {
+    public LocalDate getBookingDate() {
         return BookingDate;
     }
 
-    public void setBookingDate(Date bookingDate) {
+    public void setBookingDate(LocalDate bookingDate) {
         BookingDate = bookingDate;
     }
 
@@ -73,7 +74,15 @@ public class Booking {
         return id;
     }
 
+    public void setBookingEndDate(LocalDate bookingDate){
+        this.BookingDate = bookingDate;
+    }
+
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Date getBookingEndDate() {
+        return getReturnDate();
     }
 }
