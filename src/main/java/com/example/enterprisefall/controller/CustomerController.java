@@ -52,7 +52,7 @@ public class CustomerController {
         return ResponseEntity.ok(newOrder1);
     }
 
-    //Borde det inte vara remove customer?
+
 //  @PutMapping("/cancelorder")
 //  public ResponseEntity<Booking> cancelBooking() {
 //    // TODO
