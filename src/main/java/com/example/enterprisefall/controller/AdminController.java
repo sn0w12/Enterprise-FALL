@@ -44,8 +44,7 @@ public class AdminController {
 
     @PostMapping("/addcar")
     public ResponseEntity<Car> addCar(@RequestBody Car car) {
-        Car savedCar = carService.addCar(car);
-        return ResponseEntity.ok(savedCar);
+        return ResponseEntity.ok(carService.addCar(car));
     }
 
     @PostMapping("/addcustomer")
@@ -56,8 +55,7 @@ public class AdminController {
 
     @GetMapping("/customers")
     public ResponseEntity<List<Customer>> getAllCustomers() {
-        List<Customer> customers = customerService.getAllCustomers();
-        return ResponseEntity.ok(customers);
+        return ResponseEntity.ok(customerService.getAllCustomers());
     }
 
   @GetMapping("/allcars")
@@ -84,8 +82,7 @@ public ResponseEntity<List<Booking>> listAllBookings() {
 
   @DeleteMapping("/deletecar/{id}")
   public ResponseEntity<String> deleteCar(@PathVariable("id") int id) {
-      carService.deleteCarById(id);
-      return new ResponseEntity<>("Car " + id + " deleted!", HttpStatus.OK);
+      return ResponseEntity.ok(carService.deleteCarById(id));
   }
 //
   @DeleteMapping("/deletecustomer")

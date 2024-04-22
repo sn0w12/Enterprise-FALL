@@ -39,8 +39,7 @@ public class CustomerController {
 
     @GetMapping("/cars")
     public ResponseEntity<List<Car>> listAvailableCars() {
-        List<Car> cars = carService.findAllAvailableCars();
-        return ResponseEntity.ok(cars);
+        return ResponseEntity.ok(carService.findAllAvailableCars());
     }
 
 

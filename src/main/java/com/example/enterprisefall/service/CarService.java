@@ -4,6 +4,8 @@ import com.example.enterprisefall.entity.Car;
 import com.example.enterprisefall.repository.CarRepository;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -47,10 +49,11 @@ public class CarService {
         return savedCar;
     }
 
-    public void deleteCarById(int id) {
+    public String deleteCarById(int id) {
         carRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Car with ID " + id + " does not exist."));
         carRepository.deleteById(id);
         logger.info("\nAdmin deleted car with ID: " + id + "\n");
+        return "Car " + id + " deleted!";
     }
 
     // Update Car

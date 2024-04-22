@@ -102,3 +102,9 @@ Model changed to: Fiesta
 Reg Nr changed to: REG124
 Changed availability to: true
 
+2024-04-22 13:28:27,586 * INFO * com.example.enterprisefall.service.CarService * addCar * 
+Admin added new car: com.example.enterprisefall.entity.Car@417ebac7
+
+2024-04-22 14:03:17,222 * INFO * com.example.enterprisefall.service.CarService * deleteCarById * 
+Admin deleted car with ID: 1
+
