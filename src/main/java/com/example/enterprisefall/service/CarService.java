@@ -31,7 +31,6 @@ public class CarService {
 
     // get a list of all cars
     public List<Car> findAllCars() {
-        logger.info("\nAdmin gets list of all cars.\n");
         return carRepository.findAll();
     }
 
@@ -39,19 +38,19 @@ public class CarService {
     public Car addCar(Car newCar) {
         Optional<Car> existingCar = carRepository.findByRegistrationNumber(newCar.getRegistrationNumber());
         if (existingCar.isPresent()) {
-            logger.error("\nAttempt to add a duplicate car with registration number: " + newCar.getRegistrationNumber() + "\n");
+            logger.error("\nAdmin attempted to add a duplicate car with registration number: " + newCar.getRegistrationNumber() + "\n");
             throw new IllegalArgumentException("Car with registration number " + newCar.getRegistrationNumber() + " already exists.");
         }
 
         Car savedCar = carRepository.save(newCar);
-        logger.info("\nAdded new car: " + savedCar + "\n");
+        logger.info("\nAdmin added new car: " + savedCar + "\n");
         return savedCar;
     }
 
     public void deleteCarById(int id) {
         carRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Car with ID " + id + " does not exist."));
         carRepository.deleteById(id);
-        logger.info("\nDeleted car with ID: " + id + "\n");
+        logger.info("\nAdmin deleted car with ID: " + id + "\n");
     }
 
     // Update Car

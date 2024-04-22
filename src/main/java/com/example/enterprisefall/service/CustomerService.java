@@ -42,14 +42,14 @@ public class CustomerService {
 
   public Customer addCustomer(Customer newCustomer) {
     Customer savedCustomer = customerRepository.save(newCustomer);
-    logger.info("Added new customer: " + savedCustomer);
+    logger.info("Admin added new customer: " + savedCustomer);
     return customerRepository.save(newCustomer);
   }
 
   public void deleteCustomer(int id) {
     customerRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Customer with ID " + id + " does not exist."));
     customerRepository.deleteById(id);
-    logger.info("Deleted customer with ID: " + id);
+    logger.info("Admin deleted customer with ID: " + id);
   }
 
   // Update customer
