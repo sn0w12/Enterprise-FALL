@@ -100,6 +100,24 @@ public class CustomerService {
 
   public String orderCar(int customerId, int carId) {
 
+    // ++ EXEMPEL FÖR ATT PASSA HELA CUSTOMER
+
+    // Så här kan du göra till exempel
+    Optional<Customer> theCustomer = customerRepository.findById(customerId);
+
+    if (theCustomer.isPresent()) { // om customer är present (om den hittar id)
+      Customer theActualCustomer = theCustomer.get(); // skapa customern som har det id.t
+      // nu har du tillgång till _allt_ i den customern till exempel:
+      theActualCustomer.getPhoneNumber(); // testa skriv theActualCustomer. så får du upp alla och se hur det ser ut
+
+    } else {
+      // customer kan inte hittas
+    }
+
+    // -- EXEMPEL FÖR ATT PASSA HELA CUSTOMER
+
+
+
     //Fungerar
     customerRepository.findById(customerId)
             .orElseThrow(() -> new IllegalArgumentException("Customer with ID " + customerId + " does not exist."));
