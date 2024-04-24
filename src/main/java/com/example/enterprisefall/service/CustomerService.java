@@ -5,6 +5,7 @@ package com.example.enterprisefall.service;
 import com.example.enterprisefall.entity.Booking;
 import com.example.enterprisefall.entity.Car;
 import com.example.enterprisefall.entity.Customer;
+import com.example.enterprisefall.repository.CarRepository;
 import com.example.enterprisefall.repository.CustomerRepository;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +13,6 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -23,16 +23,17 @@ public class CustomerService {
 
   private CustomerRepository customerRepository;
   private Car car;
+  private CarRepository carRepository;
   private CarService carService;
   private Booking booking;
   private BookingService bookingService;
 
 
-
   @Autowired
-  public CustomerService(CustomerRepository customerRepository, CarService carService) {
+  public CustomerService(CustomerRepository customerRepository, CarService carService, CarRepository carRepository) {
     this.customerRepository = customerRepository;
     this.carService = carService;
+    this.carRepository = carRepository;
 
   }
 
@@ -103,6 +104,7 @@ public class CustomerService {
     // ++ EXEMPEL FÖR ATT PASSA HELA CUSTOMER
 
     // Så här kan du göra till exempel
+    //tack <3
     Optional<Customer> theCustomer = customerRepository.findById(customerId);
 
     if (theCustomer.isPresent()) { // om customer är present (om den hittar id)
@@ -112,10 +114,10 @@ public class CustomerService {
 
     } else {
       // customer kan inte hittas
+      System.out.println("Customer not found.");
     }
 
     // -- EXEMPEL FÖR ATT PASSA HELA CUSTOMER
-
 
 
     //Fungerar
@@ -123,33 +125,66 @@ public class CustomerService {
             .orElseThrow(() -> new IllegalArgumentException("Customer with ID " + customerId + " does not exist."));
 
     Car car = carService.findAllAvailableCars().get(carId);
-    if (car == null || car.getIsBooked()) {
+    // Går för tillfället att boka samma bil flera gånger
+
+    if (car.getIsBooked()) {
       return "Car is not available for booking.";
     }
 
-    LocalDate bookingEndDate = LocalDate.now().plusDays(7);
-    Customer customer = new Customer();
+
+    //Customer customer = new Customer(); behövs inte om man passerar customer med optional
     Booking booking = new Booking();
     booking.setId((long) customerId);
     car.setId(carId);
+    car.getPricePerDay();
+
+    LocalDate bookingEndDate = LocalDate.now().plusDays(7);
     booking.setBookingDate(LocalDate.now());
     booking.setBookingEndDate(bookingEndDate);
 
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+
     String bookingDateFormatted = booking.getBookingDate().format(formatter);
+    String returnDateFormatted = bookingEndDate.format(formatter);
+
 
     //Ska läggas till
-    //String returnDateFormatted = booking.getBookingEndDate().format(formatter);
+    //Spara en bokning i en lista där det blir ett boknings nummer med customer id.
 
-    //Ska läggas till
-    //bookingService.saveBooking(booking);
-
+    // booking.savebooking();
     car.setIsBooked(true);
     carService.updateCar(carId, car);
 
-    // Ska lägga till möjlighet till att se namn i return istället för customer id. Är null för tillfället i postman
+    logger.info("Customer booked " + car.getBrand() + " " + car.getModel() + " " + car.getRegistrationNumber() +
+            " booked for " + theCustomer.get().getName() + " on " + bookingDateFormatted + " for " + car.getPricePerDay() +
+            " Return car by: " + returnDateFormatted);
+
+
     return car.getBrand() + " " + car.getModel() + " " + car.getRegistrationNumber() +
-            " booked for " + customer.getId() + " on " + bookingDateFormatted +
-            ". Return " + "returnDateFormatted" ;
+            " booked for " + theCustomer.get().getName() + " on " + bookingDateFormatted + " for " + car.getPricePerDay() + "kr per day." +
+            " Return car by: " + returnDateFormatted;
+
+  }
+
+  public String listBookings(int customerId) {
+    Optional<Customer> theCustomer = customerRepository.findById(customerId);
+    // Optional<Car> theCar = carRepository.findById(CarId);
+    //enter customerId to see their active and previous bookings
+    if (theCustomer.isPresent()) {
+//      Customer customer = theCustomer.get();
+//      // Car car = theCar.get();
+//      customer.getName();
+//      car.getModel();
+//      car.getIsBooked();
+//      car.getBrand();
+//      car.getPricePerDay();
+      //Customer with "ID" has this booking which is active and show previous bookings as inactive
+
+      return theCustomer.get().getBookings();
+    }
+
+    return "No bookings previous or current.";
   }
 }
+
+

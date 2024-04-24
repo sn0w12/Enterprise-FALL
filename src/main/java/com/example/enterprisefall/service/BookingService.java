@@ -1,13 +1,16 @@
 package com.example.enterprisefall.service;
 
 import com.example.enterprisefall.entity.Booking;
+import com.example.enterprisefall.entity.Customer;
 import com.example.enterprisefall.repository.BookingRepository;
 import com.example.enterprisefall.repository.CarRepository;
 import com.example.enterprisefall.repository.CustomerRepository;
+import jakarta.persistence.Id;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -19,11 +22,13 @@ public class BookingService implements BookingServiceInterface {
     private CarRepository carRepository;
     private CustomerRepository customerRepository;
 
+
     @Autowired
     public BookingService(BookingRepository bookingRepository, CarRepository carRepository, CustomerRepository customerRepository) {
         this.bookingRepository = bookingRepository;
         this.carRepository = carRepository;
         this.customerRepository = customerRepository;
+
     }
 
 
@@ -63,8 +68,11 @@ public class BookingService implements BookingServiceInterface {
         return null;
     }
 
-    public void saveBooking(Booking booking) {
-        bookingRepository.save(booking);
+    public Booking saveBooking(int customerId) {
+        Optional<Customer> customer = customerRepository.findById(customerId);
+
+
+        return null;
     }
 
 

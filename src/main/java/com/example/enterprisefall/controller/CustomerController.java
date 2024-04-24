@@ -2,7 +2,6 @@ package com.example.enterprisefall.controller;
 
 import com.example.enterprisefall.entity.Booking;
 import com.example.enterprisefall.entity.Car;
-import com.example.enterprisefall.entity.Customer;
 import com.example.enterprisefall.service.BookingService;
 import com.example.enterprisefall.service.CarService;
 import com.example.enterprisefall.service.CustomerService;
@@ -50,9 +49,8 @@ public class CustomerController {
     }
 
 
-    //Borde det inte vara remove customer?
-  @PutMapping("/cancelorder")
-  public ResponseEntity<String> cancelBooking(@RequestBody Booking booking) {
+    @PutMapping("/cancelorder")
+    public ResponseEntity<String> cancelBooking(@RequestBody Booking booking) {
 
         bookingService.deleteBookingById(booking.getId());
 
@@ -61,20 +59,12 @@ public class CustomerController {
     }
 
 
-//• Se tidigare och aktiva bokningar GET /api/v1/myorder
-//@GetMapping("/myorders")
-//public ResponseEntity<List<Booking>> listOrdersForCustomer() {
-//        //show getIsbooked and !getIsbooked
-
-
-
-
-
-
-
-
-
-
-
+    //• Se tidigare och aktiva bokningar GET /api/v1/myorder
+    @GetMapping("/myorders")
+    public ResponseEntity<String> listOrdersForCustomer(@RequestParam ("customerId") int customerId) {
+        //show getIsbooked and !getIsbooked
+        //saveBooking i customerserivce
+        // customerService.listBookings(customerId);
+        return ResponseEntity.ok(customerService.listBookings(customerId));
+    }
 }
-

@@ -1,12 +1,16 @@
 package com.example.enterprisefall.entity;
 
+import com.example.enterprisefall.service.BookingService;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Booking {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -18,56 +22,31 @@ public class Booking {
     private Date ReturnDate;
 
     // ID of car booked
-    @Column
-    private String CarBooked;
 
-
-    @OneToOne
-    private Car car;
-    @OneToOne
+    @ManyToOne
+    @JoinColumn(name = "customer_id")
     private Customer customer;
+
+
     public Booking() {
 
     }
 
-    public Booking(Long id, String booking, LocalDate bookingDate, Date returnDate, String carBooked) {
+    public Booking(Long id, String booking, LocalDate bookingDate, Date returnDate) {
         this.id = id;
         Booking = booking;
         BookingDate = bookingDate;
         ReturnDate = returnDate;
-        CarBooked = carBooked;
-    }
 
-    public String getAllBookings() {
-        return Booking;
-    }
 
-    public void setBooking(String booking) {
-        Booking = booking;
     }
 
     public LocalDate getBookingDate() {
         return BookingDate;
     }
 
-    public void setBookingDate(LocalDate bookingDate) {
-        BookingDate = bookingDate;
-    }
-
-    public Date getReturnDate() {
-        return ReturnDate;
-    }
-
-    public void setReturnDate(Date returnDate) {
-        ReturnDate = returnDate;
-    }
-
-    public String getCarBooked() {
-        return CarBooked;
-    }
-
-    public void setCarBooked(String carBooked) {
-        CarBooked = carBooked;
+    public void setBookingDate(LocalDate bookingEndDate) {
+        BookingDate = bookingEndDate;
     }
 
     public Long getId() {
@@ -82,7 +61,5 @@ public class Booking {
         this.id = id;
     }
 
-    public Date getBookingEndDate() {
-        return getReturnDate();
-    }
+
 }

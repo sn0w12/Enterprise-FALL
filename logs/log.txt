@@ -102,9 +102,273 @@ Model changed to: Fiesta
 Reg Nr changed to: REG124
 Changed availability to: true
 
+2024-04-21 22:48:22,035 * INFO * com.example.enterprisefall.service.CarService * updateCar * 
+Admin updated Car with id: 1
+Price per day changed to: 45.0
+Manifacturer changed to: Ford
+Model changed to: Fiesta
+Reg Nr changed to: REG124
+Changed availability to: true
+
+2024-04-21 22:50:07,193 * INFO * com.example.enterprisefall.service.CarService * updateCar * 
+Admin updated Car with id: 1
+Price per day changed to: 45.0
+Manifacturer changed to: Ford
+Model changed to: Fiesta
+Reg Nr changed to: REG124
+Changed availability to: true
+
+2024-04-21 22:51:32,085 * INFO * com.example.enterprisefall.service.CarService * updateCar * 
+Admin updated Car with id: 1
+Price per day changed to: 45.0
+Manifacturer changed to: Ford
+Model changed to: Fiesta
+Reg Nr changed to: REG124
+Changed availability to: true
+
+2024-04-21 22:53:11,010 * INFO * com.example.enterprisefall.service.CarService * updateCar * 
+Admin updated Car with id: 1
+Price per day changed to: 45.0
+Manifacturer changed to: Ford
+Model changed to: Fiesta
+Reg Nr changed to: REG124
+Changed availability to: true
+
+2024-04-21 22:53:42,431 * INFO * com.example.enterprisefall.service.CarService * updateCar * 
+Admin updated Car with id: 1
+Price per day changed to: 45.0
+Manifacturer changed to: Ford
+Model changed to: Fiesta
+Reg Nr changed to: REG124
+Changed availability to: true
+
+2024-04-21 22:55:23,435 * INFO * com.example.enterprisefall.service.CarService * updateCar * 
+Admin updated Car with id: 1
+Price per day changed to: 45.0
+Manifacturer changed to: Ford
+Model changed to: Fiesta
+Reg Nr changed to: REG124
+Changed availability to: true
+
+2024-04-21 22:56:20,841 * INFO * com.example.enterprisefall.service.CarService * updateCar * 
+Admin updated Car with id: 1
+Price per day changed to: 45.0
+Manifacturer changed to: Ford
+Model changed to: Fiesta
+Reg Nr changed to: REG124
+Changed availability to: true
+
+2024-04-21 22:56:24,430 * INFO * com.example.enterprisefall.service.CarService * updateCar * 
+Admin updated Car with id: 1
+Price per day changed to: 45.0
+Manifacturer changed to: Ford
+Model changed to: Fiesta
+Reg Nr changed to: REG124
+Changed availability to: true
+
+2024-04-21 23:00:00,948 * INFO * com.example.enterprisefall.service.CarService * updateCar * 
+Admin updated Car with id: 1
+Price per day changed to: 45.0
+Manifacturer changed to: Ford
+Model changed to: Fiesta
+Reg Nr changed to: REG124
+Changed availability to: true
+
+2024-04-21 23:11:29,680 * INFO * com.example.enterprisefall.service.CarService * updateCar * 
+Admin updated Car with id: 1
+Price per day changed to: 45.0
+Manifacturer changed to: Ford
+Model changed to: Fiesta
+Reg Nr changed to: REG124
+Changed availability to: true
+
+2024-04-21 23:17:54,370 * INFO * com.example.enterprisefall.service.CarService * updateCar * 
+Admin updated Car with id: 1
+Price per day changed to: 45.0
+Manifacturer changed to: Ford
+Model changed to: Fiesta
+Reg Nr changed to: REG124
+Changed availability to: true
+
 2024-04-22 13:28:27,586 * INFO * com.example.enterprisefall.service.CarService * addCar * 
 Admin added new car: com.example.enterprisefall.entity.Car@417ebac7
 
 2024-04-22 14:03:17,222 * INFO * com.example.enterprisefall.service.CarService * deleteCarById * 
 Admin deleted car with ID: 1
 
+2024-04-24 11:16:09,596 * INFO * com.example.enterprisefall.service.CarService * updateCar * 
+Admin updated Car with id: 1
+Price per day changed to: 45.0
+Manifacturer changed to: Ford
+Model changed to: Fiesta
+Reg Nr changed to: REG124
+Changed availability to: true
+
+2024-04-24 11:18:07,439 * INFO * com.example.enterprisefall.service.CarService * updateCar * 
+Admin updated Car with id: 1
+Price per day changed to: 45.0
+Manifacturer changed to: Ford
+Model changed to: Fiesta
+Reg Nr changed to: REG124
+Changed availability to: true
+
+2024-04-24 11:18:22,460 * INFO * com.example.enterprisefall.service.CarService * updateCar * 
+Admin updated Car with id: 1
+Price per day changed to: 45.0
+Manifacturer changed to: Ford
+Model changed to: Fiesta
+Reg Nr changed to: REG124
+Changed availability to: true
+
+2024-04-24 11:27:56,837 * INFO * com.example.enterprisefall.service.CarService * updateCar * 
+Admin updated Car with id: 1
+Price per day changed to: 45.0
+Manifacturer changed to: Ford
+Model changed to: Fiesta
+Reg Nr changed to: REG124
+Changed availability to: true
+
+2024-04-24 11:34:32,508 * INFO * com.example.enterprisefall.service.CarService * updateCar * 
+Admin updated Car with id: 1
+Price per day changed to: 45.0
+Manifacturer changed to: Ford
+Model changed to: Fiesta
+Reg Nr changed to: REG124
+Changed availability to: true
+
+2024-04-24 11:34:32,510 * INFO * com.example.enterprisefall.service.CustomerService * orderCar * Customer booked Ford Fiesta REG124 booked for John Doe on 01-05-2024. Return car by: returnDateFormatted
+2024-04-24 11:34:34,502 * INFO * com.example.enterprisefall.service.CarService * updateCar * 
+Admin updated Car with id: 1
+Price per day changed to: 45.0
+Manifacturer changed to: Ford
+Model changed to: Fiesta
+Reg Nr changed to: REG124
+Changed availability to: true
+
+2024-04-24 11:34:34,502 * INFO * com.example.enterprisefall.service.CustomerService * orderCar * Customer booked Ford Fiesta REG124 booked for John Doe on 01-05-2024. Return car by: returnDateFormatted
+2024-04-24 11:34:36,410 * INFO * com.example.enterprisefall.service.CarService * updateCar * 
+Admin updated Car with id: 1
+Price per day changed to: 45.0
+Manifacturer changed to: Ford
+Model changed to: Fiesta
+Reg Nr changed to: REG124
+Changed availability to: true
+
+2024-04-24 11:34:36,410 * INFO * com.example.enterprisefall.service.CustomerService * orderCar * Customer booked Ford Fiesta REG124 booked for John Doe on 01-05-2024. Return car by: returnDateFormatted
+2024-04-24 11:42:09,488 * INFO * com.example.enterprisefall.service.CarService * updateCar * 
+Admin updated Car with id: 1
+Price per day changed to: 45.0
+Manifacturer changed to: Ford
+Model changed to: Fiesta
+Reg Nr changed to: REG124
+Changed availability to: true
+
+2024-04-24 11:42:09,489 * INFO * com.example.enterprisefall.service.CustomerService * orderCar * Customer booked Ford Fiesta REG124 booked for John Doe on 01-05-2024. Return car by: returnDateFormatted
+2024-04-24 11:42:33,435 * INFO * com.example.enterprisefall.service.CarService * updateCar * 
+Admin updated Car with id: 1
+Price per day changed to: 45.0
+Manifacturer changed to: Ford
+Model changed to: Fiesta
+Reg Nr changed to: REG124
+Changed availability to: true
+
+2024-04-24 11:42:33,435 * INFO * com.example.enterprisefall.service.CustomerService * orderCar * Customer booked Ford Fiesta REG124 booked for John Doe on 01-05-2024. Return car by: returnDateFormatted
+2024-04-24 11:42:43,067 * INFO * com.example.enterprisefall.service.CarService * updateCar * 
+Admin updated Car with id: 1
+Price per day changed to: 45.0
+Manifacturer changed to: Ford
+Model changed to: Fiesta
+Reg Nr changed to: REG124
+Changed availability to: true
+
+2024-04-24 11:42:43,069 * INFO * com.example.enterprisefall.service.CustomerService * orderCar * Customer booked Ford Fiesta REG124 booked for John Doe on 01-05-2024. Return car by: returnDateFormatted
+2024-04-24 11:45:06,926 * INFO * com.example.enterprisefall.service.CarService * updateCar * 
+Admin updated Car with id: 1
+Price per day changed to: 45.0
+Manifacturer changed to: Ford
+Model changed to: Fiesta
+Reg Nr changed to: REG124
+Changed availability to: true
+
+2024-04-24 11:45:06,928 * INFO * com.example.enterprisefall.service.CustomerService * orderCar * Customer booked Ford Fiesta REG124 booked for John Doe on 01-05-2024. Return car by: returnDateFormatted
+2024-04-24 11:45:15,318 * INFO * com.example.enterprisefall.service.CarService * updateCar * 
+Admin updated Car with id: 1
+Price per day changed to: 45.0
+Manifacturer changed to: Ford
+Model changed to: Fiesta
+Reg Nr changed to: REG124
+Changed availability to: true
+
+2024-04-24 11:45:15,318 * INFO * com.example.enterprisefall.service.CustomerService * orderCar * Customer booked Ford Fiesta REG124 booked for Alice Smith on 01-05-2024. Return car by: returnDateFormatted
+2024-04-24 11:45:20,623 * INFO * com.example.enterprisefall.service.CarService * updateCar * 
+Admin updated Car with id: 1
+Price per day changed to: 45.0
+Manifacturer changed to: Ford
+Model changed to: Fiesta
+Reg Nr changed to: REG124
+Changed availability to: true
+
+2024-04-24 11:45:20,623 * INFO * com.example.enterprisefall.service.CustomerService * orderCar * Customer booked Ford Fiesta REG124 booked for Robert Jones on 01-05-2024. Return car by: returnDateFormatted
+2024-04-24 11:45:24,183 * INFO * com.example.enterprisefall.service.CarService * updateCar * 
+Admin updated Car with id: 1
+Price per day changed to: 45.0
+Manifacturer changed to: Ford
+Model changed to: Fiesta
+Reg Nr changed to: REG124
+Changed availability to: true
+
+2024-04-24 11:45:24,183 * INFO * com.example.enterprisefall.service.CustomerService * orderCar * Customer booked Ford Fiesta REG124 booked for Emma Miller on 01-05-2024. Return car by: returnDateFormatted
+2024-04-24 11:45:29,441 * INFO * com.example.enterprisefall.service.CarService * updateCar * 
+Admin updated Car with id: 1
+Price per day changed to: 45.0
+Manifacturer changed to: Ford
+Model changed to: Fiesta
+Reg Nr changed to: REG124
+Changed availability to: true
+
+2024-04-24 11:45:29,441 * INFO * com.example.enterprisefall.service.CustomerService * orderCar * Customer booked Ford Fiesta REG124 booked for Tom Williams on 01-05-2024. Return car by: returnDateFormatted
+2024-04-24 11:47:28,099 * INFO * com.example.enterprisefall.service.CarService * updateCar * 
+Admin updated Car with id: 1
+Price per day changed to: 45.0
+Manifacturer changed to: Ford
+Model changed to: Fiesta
+Reg Nr changed to: REG124
+Changed availability to: true
+
+2024-04-24 11:47:28,100 * INFO * com.example.enterprisefall.service.CustomerService * orderCar * Customer booked Ford Fiesta REG124 booked for Tom Williams on 01-05-2024. Return car by: 01-05-2024
+2024-04-24 12:21:18,799 * INFO * com.example.enterprisefall.service.CarService * updateCar * 
+Admin updated Car with id: 1
+Price per day changed to: 45.0
+Manifacturer changed to: Ford
+Model changed to: Fiesta
+Reg Nr changed to: REG124
+Changed availability to: true
+
+2024-04-24 12:21:18,801 * INFO * com.example.enterprisefall.service.CustomerService * orderCar * Customer booked Ford Fiesta REG124 booked for Tom Williams on 01-05-2024for 45.0. Return car by: 01-05-2024
+2024-04-24 12:22:16,986 * INFO * com.example.enterprisefall.service.CarService * updateCar * 
+Admin updated Car with id: 1
+Price per day changed to: 45.0
+Manifacturer changed to: Ford
+Model changed to: Fiesta
+Reg Nr changed to: REG124
+Changed availability to: true
+
+2024-04-24 12:22:16,988 * INFO * com.example.enterprisefall.service.CustomerService * orderCar * Customer booked Ford Fiesta REG124 booked for Tom Williams on 01-05-2024 for 45.0 Return car by: 01-05-2024
+2024-04-24 12:22:28,055 * INFO * com.example.enterprisefall.service.CarService * updateCar * 
+Admin updated Car with id: 1
+Price per day changed to: 45.0
+Manifacturer changed to: Ford
+Model changed to: Fiesta
+Reg Nr changed to: REG124
+Changed availability to: true
+
+2024-04-24 12:22:28,055 * INFO * com.example.enterprisefall.service.CustomerService * orderCar * Customer booked Ford Fiesta REG124 booked for John Doe on 01-05-2024 for 45.0 Return car by: 01-05-2024
+2024-04-24 13:03:22,028 * INFO * com.example.enterprisefall.service.CarService * updateCar * 
+Admin updated Car with id: 1
+Price per day changed to: 45.0
+Manifacturer changed to: Ford
+Model changed to: Fiesta
+Reg Nr changed to: REG124
+Changed availability to: true
+
+2024-04-24 13:03:22,030 * INFO * com.example.enterprisefall.service.CustomerService * orderCar * Customer booked Ford Fiesta REG124 booked for John Doe on 01-05-2024 for 45.0 Return car by: 01-05-2024
