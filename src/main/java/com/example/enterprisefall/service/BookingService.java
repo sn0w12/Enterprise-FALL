@@ -51,6 +51,8 @@ public class BookingService implements BookingServiceInterface {
         return bookingRepository.save(booking);
     }
 
+
+
     @Override
     public void deleteBookingById(long id) {
         bookingRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Booking with ID " + id + " does not exist."));
@@ -63,9 +65,9 @@ public class BookingService implements BookingServiceInterface {
         return null;
     }
 
-    public void saveBooking(Booking booking) {
-        bookingRepository.save(booking);
-    }
+//    public void saveBooking(Booking booking) {
+//        bookingRepository.save(booking);
+//    }
 
     // METODER
 }

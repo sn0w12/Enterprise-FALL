@@ -5,6 +5,7 @@ package com.example.enterprisefall.service;
 import com.example.enterprisefall.entity.Booking;
 import com.example.enterprisefall.entity.Car;
 import com.example.enterprisefall.entity.Customer;
+import com.example.enterprisefall.repository.CarRepository;
 import com.example.enterprisefall.repository.CustomerRepository;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +13,8 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -22,17 +24,17 @@ public class CustomerService {
   private Logger logger = Logger.getLogger(CustomerService.class);
 
   private CustomerRepository customerRepository;
-  private Car car;
+  private CarRepository carRepository;
   private CarService carService;
-  private Booking booking;
   private BookingService bookingService;
 
 
-
   @Autowired
-  public CustomerService(CustomerRepository customerRepository, CarService carService) {
+  public CustomerService(CustomerRepository customerRepository, CarService carService, CarRepository carRepository, BookingService bookingService) {
     this.customerRepository = customerRepository;
     this.carService = carService;
+    this.carRepository = carRepository;
+    this.bookingService = bookingService;
 
   }
 
@@ -99,57 +101,65 @@ public class CustomerService {
   }
 
   public String orderCar(int customerId, int carId) {
+    Optional<Customer> optionalCustomer = customerRepository.findById(customerId);
+    Optional<Car> optionalCar = carRepository.findById(carId);
 
-    // ++ EXEMPEL FÖR ATT PASSA HELA CUSTOMER
-
-    // Så här kan du göra till exempel
-    Optional<Customer> theCustomer = customerRepository.findById(customerId);
-
-    if (theCustomer.isPresent()) { // om customer är present (om den hittar id)
-      Customer theActualCustomer = theCustomer.get(); // skapa customern som har det id.t
-      // nu har du tillgång till _allt_ i den customern till exempel:
-      theActualCustomer.getPhoneNumber(); // testa skriv theActualCustomer. så får du upp alla och se hur det ser ut
-
-    } else {
-      // customer kan inte hittas
+    if (optionalCustomer.isEmpty() || optionalCar.isEmpty()) {
+      return "Customer or car not found.";
     }
 
-    // -- EXEMPEL FÖR ATT PASSA HELA CUSTOMER
+    Customer customer = optionalCustomer.get();
+    Car car = optionalCar.get();
 
-
-
-    //Fungerar
-    customerRepository.findById(customerId)
-            .orElseThrow(() -> new IllegalArgumentException("Customer with ID " + customerId + " does not exist."));
-
-    Car car = carService.findAllAvailableCars().get(carId);
-    if (car == null || car.getIsBooked()) {
+    if (car.getIsBooked()) {
       return "Car is not available for booking.";
     }
 
+    Booking booking = new Booking(customer);
+    booking.setCar(car);
+
     LocalDate bookingEndDate = LocalDate.now().plusDays(7);
-    Customer customer = new Customer();
-    Booking booking = new Booking();
-    booking.setId((long) customerId);
-    car.setId(carId);
     booking.setBookingDate(LocalDate.now());
-    booking.setBookingEndDate(bookingEndDate);
+    booking.setReturnDate(bookingEndDate);
 
-    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-    String bookingDateFormatted = booking.getBookingDate().format(formatter);
 
-    //Ska läggas till
-    //String returnDateFormatted = booking.getBookingEndDate().format(formatter);
-
-    //Ska läggas till
-    //bookingService.saveBooking(booking);
+    bookingService.addNewBookingDate(booking);
 
     car.setIsBooked(true);
     carService.updateCar(carId, car);
 
-    // Ska lägga till möjlighet till att se namn i return istället för customer id. Är null för tillfället i postman
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+    String bookingDateFormatted = booking.getBookingDate().format(formatter);
+    String returnDateFormatted = bookingEndDate.format(formatter);
+
+    logger.info("Customer booked " + car.getBrand() + " " + car.getModel() + " " + car.getRegistrationNumber() +
+            " booked for " + customer.getName() + " on " + bookingDateFormatted + " for " + car.getPricePerDay() +
+            " Return car by: " + returnDateFormatted);
+
     return car.getBrand() + " " + car.getModel() + " " + car.getRegistrationNumber() +
-            " booked for " + customer.getId() + " on " + bookingDateFormatted +
-            ". Return " + "returnDateFormatted" ;
+            " booked for " + customer.getName() + " on " + bookingDateFormatted + " for " + car.getPricePerDay() + "kr per day." +
+            " Return car by: " + returnDateFormatted;
+  }
+
+  public List<String> listBookings(int customerId) {
+    Optional<Customer> optionalCustomer = customerRepository.findById(customerId);
+    List<String> bookingDetails = new ArrayList<>();
+
+    if (optionalCustomer.isPresent()) {
+      Customer customer = optionalCustomer.get();
+      List<Booking> bookings = customer.getBookings();
+
+      for (Booking booking : bookings) {
+        String details = String.format("- %s %s, Booked on: %s, Return by: %s",
+                booking.getCar().getBrand(), booking.getCar().getModel(),
+                booking.getBookingDate(), booking.getBookingEndDate());
+        bookingDetails.add(details);
+      }
+    }
+
+    return bookingDetails;
   }
 }
+
+
+

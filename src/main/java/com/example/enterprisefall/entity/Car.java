@@ -2,6 +2,9 @@ package com.example.enterprisefall.entity;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name = "cars")
 public class Car {
@@ -24,6 +27,10 @@ public class Car {
 
     @Column(nullable = false)
     private Boolean isBooked;
+
+    @OneToMany(mappedBy = "car", cascade = CascadeType.ALL)
+    private List<Booking> bookings = new ArrayList<>();
+
 
     public Car() {
     }

@@ -2,6 +2,10 @@ package com.example.enterprisefall.entity;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
+
 @Entity
 @Table(name = "customers")
 public class Customer {
@@ -24,6 +28,10 @@ public class Customer {
 
     @Column(nullable = false)
     private String phoneNumber;
+
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
+    private List<Booking> bookings = new ArrayList<>();
+
 
     // Constructors
     public Customer() {
@@ -85,6 +93,10 @@ public class Customer {
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
+    public List<Booking> getBookings() {
+        return bookings;
+    }
 
 
-}
+    }
+

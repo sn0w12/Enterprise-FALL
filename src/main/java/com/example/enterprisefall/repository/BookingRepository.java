@@ -11,7 +11,4 @@ public interface BookingRepository extends JpaRepository<Booking, Long> {
     Optional<Booking> findById(Long id);
 
     void deleteById(Long id);
-
-    @Override
-    Booking save(Booking booking);
 }
