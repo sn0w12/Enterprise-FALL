@@ -67,8 +67,5 @@ public class BookingService implements BookingServiceInterface {
         bookingRepository.save(booking);
     }
 
-
-
-
     // METODER
 }
