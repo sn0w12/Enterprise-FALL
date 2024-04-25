@@ -10,9 +10,6 @@ public class Booking {
     private Long id;
 
     @Column
-    private String booking;
-
-    @Column
     private LocalDate bookingDate;
 
     @Column
@@ -24,18 +21,19 @@ public class Booking {
     @ManyToOne
     @JoinColumn(name = "customer_id")
     private Customer customer;
-    private LocalDate bookingEndDate;
+
 
     public Booking() {
     }
 
-    public Booking(String booking, LocalDate bookingDate, LocalDate returnDate) {
-        this.booking = booking;
+    public Booking( LocalDate bookingDate, LocalDate returnDate) {
+
         this.bookingDate = bookingDate;
         this.returnDate = returnDate;
     }
 
     public Booking(Customer customer) {
+        this.customer = customer;
     }
 
     public Long getId() {
@@ -46,13 +44,6 @@ public class Booking {
         this.id = id;
     }
 
-    public String getBooking() {
-        return booking;
-    }
-
-    public void setBooking(String booking) {
-        this.booking = booking;
-    }
 
     public LocalDate getBookingDate() {
         return bookingDate;
@@ -62,12 +53,12 @@ public class Booking {
         this.bookingDate = bookingDate;
     }
 
-    public LocalDate getReturnDate() {
-        return returnDate;
-    }
-
     public void setReturnDate(LocalDate returnDate) {
         this.returnDate = returnDate;
+    }
+
+    public LocalDate getReturnDate() {
+        return returnDate;
     }
 
     public Car getCar() {
@@ -78,11 +69,5 @@ public class Booking {
         this.car = car;
     }
 
-    public void setBookingEndDate(LocalDate bookingEndDate) {
-        this.bookingDate = bookingEndDate;
-    }
 
-    public LocalDate getBookingEndDate() {
-        return this.bookingEndDate;
-    }
 }

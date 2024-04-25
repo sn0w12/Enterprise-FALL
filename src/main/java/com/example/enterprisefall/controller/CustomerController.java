@@ -13,13 +13,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 
-//Kunderna ska kunna göra ett antal aktiviteter med följande endpoints:
-//        • Lista tillgängliga bilar GET /api/v1/cars
-//• Beställa hyrbil POST /api/v1/ordercar
-//• Avboka PUT /api/v1/cancelorder
-
-
-
 @Controller
 @RequestMapping("/api/v1/")
 public class CustomerController {
@@ -27,7 +20,7 @@ public class CustomerController {
     private CustomerService customerService;
     private CarService carService;
     private BookingService bookingService;
-    private Car car;
+
 
     @Autowired
     public CustomerController(CustomerService customerService, CarService carService, BookingService bookingService) {
@@ -58,8 +51,6 @@ public class CustomerController {
 
     }
 
-
-    //• Se tidigare och aktiva bokningar GET /api/v1/myorder
     @GetMapping("/myorders")
     public ResponseEntity<List<String>> listOrdersForCustomer(@RequestParam int customerId) {
         List<String> bookings = customerService.listBookings(customerId);

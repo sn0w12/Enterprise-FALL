@@ -27,7 +27,6 @@ public class BookingService implements BookingServiceInterface {
     }
 
 
-    //aktiva bookings
     @Override
     public List<Booking> getAllBookings() {
 
@@ -65,9 +64,6 @@ public class BookingService implements BookingServiceInterface {
         return null;
     }
 
-//    public void saveBooking(Booking booking) {
-//        bookingRepository.save(booking);
-//    }
 
     // METODER
 }

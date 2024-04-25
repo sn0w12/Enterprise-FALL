@@ -118,6 +118,7 @@ public class CustomerService {
     Booking booking = new Booking(customer);
     booking.setCar(car);
 
+
     LocalDate bookingEndDate = LocalDate.now().plusDays(7);
     booking.setBookingDate(LocalDate.now());
     booking.setReturnDate(bookingEndDate);
@@ -125,7 +126,7 @@ public class CustomerService {
 
     bookingService.addNewBookingDate(booking);
 
-    car.setIsBooked(true);
+    car.setIsBooked(false);
     carService.updateCar(carId, car);
 
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
@@ -150,13 +151,13 @@ public class CustomerService {
       List<Booking> bookings = customer.getBookings();
 
       for (Booking booking : bookings) {
-        String details = String.format("- %s %s, Booked on: %s, Return by: %s",
-                booking.getCar().getBrand(), booking.getCar().getModel(),
-                booking.getBookingDate(), booking.getBookingEndDate());
+        String details = String.format("- %s %s, Booked on: %s, By: %s, Return by: %s",
+                booking.getCar().getBrand(), booking.getCar().getModel(), booking.getBookingDate(), customer.getName(), booking.getReturnDate());
+
         bookingDetails.add(details);
       }
     }
-
+    logger.info(bookingDetails);
     return bookingDetails;
   }
 }
