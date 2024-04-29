@@ -58,44 +58,46 @@ public class AdminController {
         return ResponseEntity.ok(customerService.getAllCustomers());
     }
 
-  @GetMapping("/allcars")
-  public ResponseEntity<List<Car>> listAllCars() {
-    return ResponseEntity.ok(carService.findAllCars());
-  }
+    @GetMapping("/allcars")
+    public ResponseEntity<List<Car>> listAllCars() {
+        return ResponseEntity.ok(carService.findAllCars());
+    }
 
-////• Lista bokningar GET /api/v1/orders
-@GetMapping("/orders")
-public ResponseEntity<List<Booking>> listAllBookings() {
-    List<Booking> bookings = bookingService.getAllBookings();
-    return ResponseEntity.ok(bookings);
- }
+    ////• Lista bokningar GET /api/v1/orders
+    @GetMapping("/orders")
+    public ResponseEntity<List<Booking>> listAllBookings() {
+        List<Booking> bookings = bookingService.getAllBookings();
+        return ResponseEntity.ok(bookings);
+    }
 
-  @PutMapping("/updatecar")
-  public ResponseEntity<String> updateCare(@PathVariable("carId") int carId, @RequestBody Car carToBeUpdated) {
-    return ResponseEntity.ok(carService.updateCar(carId, carToBeUpdated));
-  }
+    @PutMapping("/updatecar")
+    public ResponseEntity<String> updateCare(@PathVariable("carId") int carId, @RequestBody Car carToBeUpdated) {
+        return ResponseEntity.ok(carService.updateCar(carId, carToBeUpdated));
+    }
 
-  @PutMapping("/updatecustomer")
-  public ResponseEntity<String> updateCustomer(@RequestBody Customer customerToBeUpdated) {
-    return ResponseEntity.ok(customerService.updateCustomer(customerToBeUpdated));
-  }
+    @PutMapping("/updatecustomer")
+    public ResponseEntity<String> updateCustomer(@RequestBody Customer customerToBeUpdated) {
+        return ResponseEntity.ok(customerService.updateCustomer(customerToBeUpdated));
+    }
 
-  @DeleteMapping("/deletecar/{id}")
-  public ResponseEntity<String> deleteCar(@PathVariable("id") int id) {
-      return ResponseEntity.ok(carService.deleteCarById(id));
-  }
-//
-  @DeleteMapping("/deletecustomer")
-  public ResponseEntity<String> deleteCustomer(@RequestBody Customer customerToBeDeleted) {
+    @DeleteMapping("/deletecar/{id}")
+    public ResponseEntity<String> deleteCar(@PathVariable("id") int id) {
+        return ResponseEntity.ok(carService.deleteCarById(id));
+    }
+
+    //
+    @DeleteMapping("/deletecustomer")
+    public ResponseEntity<String> deleteCustomer(@RequestBody Customer customerToBeDeleted) {
 
         customerService.deleteCustomer(customerToBeDeleted.getId());
 
         return new ResponseEntity<>("Customer " + customerToBeDeleted.getId() + " deleted!", HttpStatus.OK);
 
-  }
+    }
 
-//  @DeleteMapping("/deleteorder")
-//  public ResponseEntity<String> deleteBooking(@RequestBody Booking bookingToBeDeleted) {
-//    // TODO
-//  }
+    @DeleteMapping("/deleteorder")
+    public ResponseEntity<String> deleteBooking(@RequestParam ("bookingId") int id) {
+        return ResponseEntity.ok(bookingService.deleteBookingById(id));
+
+    }
 }
