@@ -6,6 +6,7 @@ import com.example.enterprisefall.service.BookingService;
 import com.example.enterprisefall.service.CarService;
 import com.example.enterprisefall.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -48,9 +49,13 @@ public class CustomerController {
     @PutMapping("/cancelorder")
     public ResponseEntity<String> cancelBooking(@RequestBody Booking booking) {
 
-        bookingService.deleteBookingById(booking.getId());
+        String cancelResult = bookingService.cancelBooking(booking.getId());
 
-        return ResponseEntity.ok("Booking cancelled");
+        if (cancelResult.equals("Booking cancelled")) {
+            return ResponseEntity.ok(cancelResult);
+        } else {
+            return ResponseEntity.status((HttpStatus.NOT_FOUND)).body(cancelResult);
+        }
 
     }
 

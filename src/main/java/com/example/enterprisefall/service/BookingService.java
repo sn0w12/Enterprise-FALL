@@ -1,6 +1,7 @@
 package com.example.enterprisefall.service;
 
 import com.example.enterprisefall.entity.Booking;
+import com.example.enterprisefall.entity.Car;
 import com.example.enterprisefall.repository.BookingRepository;
 import com.example.enterprisefall.repository.CarRepository;
 import com.example.enterprisefall.repository.CustomerRepository;
@@ -8,6 +9,7 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -58,6 +60,26 @@ public class BookingService implements BookingServiceInterface {
         bookingRepository.deleteById(id);
         logger.info("\nDeleted booking with ID: " + id + "\n");
         return "booking has been deleted" + getBookingById(id);
+    }
+
+    @Override
+    public String cancelBooking(long bookingId) {
+        Optional<Booking> optionalBooking = bookingRepository.findById(bookingId);
+        if (optionalBooking.isPresent()) {
+            Booking existingBooking = optionalBooking.get();
+            existingBooking.setReturnDate(LocalDate.now()) ;
+
+            Car car = existingBooking.getCar();
+            car.setIsBooked(false);
+            bookingRepository.save(existingBooking);
+            carRepository.save(car);
+
+            logger.info("\nBooking with ID: " + bookingId + " has been cancelled\n");
+            return "Booking has been cancelled";
+        } else {
+            return "Booking with ID " + bookingId + " does not exist.";
+        }
+
     }
 
     @Override

@@ -17,5 +17,7 @@ public interface BookingServiceInterface {
 
     String deleteBookingById(long id);
 
+    String cancelBooking(long bookingId);
+
     Booking updateBooking(long id, Booking booking);
 }
