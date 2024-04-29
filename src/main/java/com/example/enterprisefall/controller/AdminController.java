@@ -71,8 +71,8 @@ public class AdminController {
     }
 
     @PutMapping("/updatecar")
-    public ResponseEntity<String> updateCare(@PathVariable("carId") int carId, @RequestBody Car carToBeUpdated) {
-        return ResponseEntity.ok(carService.updateCar(carId, carToBeUpdated));
+    public ResponseEntity<String> updateCare(@RequestBody Car carToBeUpdated) {
+        return ResponseEntity.ok(carService.updateCar(carToBeUpdated));
     }
 
     @PutMapping("/updatecustomer")

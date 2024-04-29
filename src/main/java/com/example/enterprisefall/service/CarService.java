@@ -57,7 +57,7 @@ public class CarService {
     }
 
     // Update Car
-    public String updateCar(int carId, Car carToBeUpdated) {
+    public String updateCar(Car carToBeUpdated) {
         Optional<Car> optionalCar = carRepository.findById(carToBeUpdated.getId());
 
         StringBuilder updateMessage = new StringBuilder();
@@ -98,6 +98,7 @@ public class CarService {
             }
 
             logger.info(updateMessage);
+            carRepository.save(existingCar);
             return updateMessage.toString();
         } else {
 
