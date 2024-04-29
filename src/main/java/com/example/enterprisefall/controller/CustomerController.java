@@ -42,6 +42,9 @@ public class CustomerController {
     }
 
 
+
+            // Inte delete utan bara cancel
+            // ändra slutdatum och att bil går från unavailable till available
     @PutMapping("/cancelorder")
     public ResponseEntity<String> cancelBooking(@RequestBody Booking booking) {
 
