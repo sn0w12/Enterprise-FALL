@@ -33,7 +33,6 @@ public class Customer {
     private List<Booking> bookings = new ArrayList<>();
 
 
-    // Constructors
     public Customer() {
     }
 
@@ -45,7 +44,6 @@ public class Customer {
         this.phoneNumber = phoneNumber;
     }
 
-    // Getters and Setters
     public int getId() {
         return id;
     }

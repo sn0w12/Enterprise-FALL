@@ -14,7 +14,6 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -48,13 +47,20 @@ public class CustomerService {
     return customerRepository.save(newCustomer);
   }
 
-  public void deleteCustomer(int id) {
-    customerRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Customer with ID " + id + " does not exist."));
-    customerRepository.deleteById(id);
-    logger.info("Admin deleted customer with ID: " + id);
+  public String deleteCustomer(Customer customerToBeDeleted) {
+
+    Optional<Customer> optionalCustomer = customerRepository.findById(customerToBeDeleted.getId());
+    if (optionalCustomer.isPresent()) {
+      Customer customer = optionalCustomer.get();
+      logger.info("Admin deleted customer with ID: " + customerToBeDeleted.getId());
+      customerRepository.deleteById(customer.getId());
+     return "Admin Deleted Customer with ID: " + customerToBeDeleted.getId();
+    } else {
+      logger.error("ERROR: Customer not found with ID " + customerToBeDeleted.getId());
+      return "ERROR: Customer not found";
+    }
   }
 
-  // Update customer
   public String updateCustomer(Customer customerToBeUpdated) {
     Optional<Customer> optionalCustomer = customerRepository.findById(customerToBeUpdated.getId());
 
@@ -104,42 +110,44 @@ public class CustomerService {
     Optional<Customer> optionalCustomer = customerRepository.findById(customerId);
     Optional<Car> optionalCar = carRepository.findById(carId);
 
-    if (optionalCustomer.isEmpty() || optionalCar.isEmpty()) {
+    if (optionalCustomer.isPresent() && optionalCar.isPresent()) {
+      Customer customer = optionalCustomer.get();
+      Car car = optionalCar.get();
+
+        if (!car.getIsBooked()) {
+          Booking booking = new Booking(customer);
+          booking.setCar(car);
+
+          LocalDate bookingEndDate = LocalDate.now().plusDays(7);
+          booking.setBookingDate(LocalDate.now());
+          booking.setReturnDate(bookingEndDate);
+
+          bookingService.addNewBookingDate(booking);
+
+          car.setIsBooked(true);
+          carService.updateCar(car);
+
+          DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+          String bookingDateFormatted = booking.getBookingDate().format(formatter);
+          String returnDateFormatted = bookingEndDate.format(formatter);
+
+          logger.info("Customer booked " + car.getBrand() + " " + car.getModel() + " " + car.getRegistrationNumber() +
+                  " booked for " + customer.getName() + " on " + bookingDateFormatted + " for " + car.getPricePerDay() +
+                  " Return car by: " + returnDateFormatted);
+
+          return car.getBrand() + " " + car.getModel() + " " + car.getRegistrationNumber() +
+                  " booked for " + customer.getName() + " on " + bookingDateFormatted + " for " + car.getPricePerDay() + "kr per day." +
+                  " Return car by: " + returnDateFormatted;
+
+        } else {
+          logger.error("Customer tried to book a car that is already booked.");
+          return "Car is already Booked";
+        }
+
+    } else {
+      logger.error("Customer or car not found.");
       return "Customer or car not found.";
     }
-
-    Customer customer = optionalCustomer.get();
-    Car car = optionalCar.get();
-
-    if (car.getIsBooked()) {
-      return "Car is not available for booking.";
-    }
-
-    Booking booking = new Booking(customer);
-    booking.setCar(car);
-
-
-    LocalDate bookingEndDate = LocalDate.now().plusDays(7);
-    booking.setBookingDate(LocalDate.now());
-    booking.setReturnDate(bookingEndDate);
-
-
-    bookingService.addNewBookingDate(booking);
-
-    car.setIsBooked(true);
-    carService.updateCar(car);
-
-    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-    String bookingDateFormatted = booking.getBookingDate().format(formatter);
-    String returnDateFormatted = bookingEndDate.format(formatter);
-
-    logger.info("Customer booked " + car.getBrand() + " " + car.getModel() + " " + car.getRegistrationNumber() +
-            " booked for " + customer.getName() + " on " + bookingDateFormatted + " for " + car.getPricePerDay() +
-            " Return car by: " + returnDateFormatted);
-
-    return car.getBrand() + " " + car.getModel() + " " + car.getRegistrationNumber() +
-            " booked for " + customer.getName() + " on " + bookingDateFormatted + " for " + car.getPricePerDay() + "kr per day." +
-            " Return car by: " + returnDateFormatted;
   }
 
   public List<String> listBookings(int customerId) {
@@ -157,7 +165,6 @@ public class CustomerService {
         bookingDetails.add(details);
       }
     }
-    logger.info(bookingDetails);
     return bookingDetails;
   }
 }

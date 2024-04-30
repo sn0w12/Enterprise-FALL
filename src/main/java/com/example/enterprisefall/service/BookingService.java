@@ -7,6 +7,8 @@ import com.example.enterprisefall.repository.CarRepository;
 import com.example.enterprisefall.repository.CustomerRepository;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -28,23 +30,15 @@ public class BookingService implements BookingServiceInterface {
         this.customerRepository = customerRepository;
     }
 
-
     @Override
     public List<Booking> getAllBookings() {
-
         return bookingRepository.findAll();
-
     }
 
     @Override
-    public Optional<Booking> getBookingById(long id) {
+    public Optional<Booking> getBookingById(int id) {
         Optional<Booking> booking = bookingRepository.findById(id);
         return booking;
-    }
-
-    @Override
-    public Booking addNewBooking(Booking booking) {
-        return null;
     }
 
     @Override
@@ -52,41 +46,42 @@ public class BookingService implements BookingServiceInterface {
         return bookingRepository.save(booking);
     }
 
-
-
     @Override
-    public String deleteBookingById(long id) {
-        bookingRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Booking with ID " + id + " does not exist."));
-        bookingRepository.deleteById(id);
-        logger.info("\nDeleted booking with ID: " + id + "\n");
-        return "booking has been deleted" + getBookingById(id);
+    public String deleteBookingById(int id) {
+        Optional<Booking> optionalBooking = bookingRepository.findById(id);
+        if (optionalBooking.isPresent()) {
+            Booking booking = optionalBooking.get();
+            Car car = booking.getCar();
+
+            car.setIsBooked(false);
+
+            carRepository.save(car);
+
+            bookingRepository.delete(booking);
+            logger.info("\nDeleted booking with ID: " + booking.getId() + "\n");
+            return "Booking with ID " + booking.getId() + " has been deleted";
+        } else {
+            logger.error("\nBooking with ID " + id + " does not exist.\n");
+            return "Booking with ID " + id + " does not exist.";
+        }
     }
 
     @Override
-    public String cancelBooking(long bookingId) {
-        Optional<Booking> optionalBooking = bookingRepository.findById(bookingId);
+    public String cancelBooking(Booking booking) {
+        Optional<Booking> optionalBooking = bookingRepository.findById(booking.getId());
         if (optionalBooking.isPresent()) {
             Booking existingBooking = optionalBooking.get();
             existingBooking.setReturnDate(LocalDate.now()) ;
 
             Car car = existingBooking.getCar();
             car.setIsBooked(false);
-            bookingRepository.save(existingBooking);
             carRepository.save(car);
+            bookingRepository.save(existingBooking);
 
-            logger.info("\nBooking with ID: " + bookingId + " has been cancelled\n");
+            logger.info("Booking with ID " + existingBooking.getId() + " has been cancelled");
             return "Booking has been cancelled";
         } else {
-            return "Booking with ID " + bookingId + " does not exist.";
+            return "Booking with ID does not exist.";
         }
-
     }
-
-    @Override
-    public Booking updateBooking(long id, Booking booking) {
-        return null;
-    }
-
-
-    // METODER
 }

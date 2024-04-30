@@ -7,24 +7,12 @@ import com.example.enterprisefall.service.BookingService;
 import com.example.enterprisefall.service.CarService;
 import com.example.enterprisefall.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-//Administratörer ska kunna göra ett antal aktiviteter med följande endpoints:
-//        • Lista kunder GET /api/v1/customers
-//• Lägga till fordon POST /api/v1/addcar
-//• Ta bort fordon DELETE /api/v1/deletecar
-//• Uppdatera fordon PUT /api/v1/updatecar
-//• Lägga till kund POST /api/v1/addcustomer
-//• Uppdatera kund PUT /api/v1/updatecustomer
-//• Ta bort kund DELETE /api/v1/deletecustomer
-//• Lista samtliga bilar GET /api/v1/allcars
-//• Lista bokningar GET /api/v1/orders
-//• Ta bort bokning DELETE /api/v1/deleteorder
 
 
 @Controller
@@ -63,15 +51,9 @@ public class AdminController {
         return ResponseEntity.ok(carService.findAllCars());
     }
 
-    ////• Lista bokningar GET /api/v1/orders
     @GetMapping("/orders")
-    public ResponseEntity<Object> listAllBookings() {
-        List<Booking> bookings = bookingService.getAllBookings();
-        if (bookings.isEmpty()) {
-            return new ResponseEntity<>("There are no bookings in the database", HttpStatus.OK);
-        }
-
-        return ResponseEntity.ok(bookings);
+    public ResponseEntity<List<Booking>> listAllBookings() {
+        return ResponseEntity.ok(bookingService.getAllBookings());
     }
 
     @PutMapping("/updatecar")
@@ -89,19 +71,13 @@ public class AdminController {
         return ResponseEntity.ok(carService.deleteCarById(id));
     }
 
-    //
     @DeleteMapping("/deletecustomer")
     public ResponseEntity<String> deleteCustomer(@RequestBody Customer customerToBeDeleted) {
-
-        customerService.deleteCustomer(customerToBeDeleted.getId());
-
-        return new ResponseEntity<>("Customer " + customerToBeDeleted.getId() + " deleted!", HttpStatus.OK);
-
+        return ResponseEntity.ok(customerService.deleteCustomer(customerToBeDeleted));
     }
 
     @DeleteMapping("/deleteorder")
     public ResponseEntity<String> deleteBooking(@RequestParam ("bookingId") int id) {
         return ResponseEntity.ok(bookingService.deleteBookingById(id));
-
     }
 }
