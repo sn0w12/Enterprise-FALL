@@ -1,10 +1,10 @@
 -- Cars testdata
 INSERT INTO cars (brand, model, registration_number, price_per_day, is_booked)
-VALUES ('Toyota', 'Corolla', 'REG123', 55.0, false),
-       ('Ford', 'Fiesta', 'REG124', 45.0, false),
+VALUES ('Toyota', 'Corolla', 'REG123', 55.0, true),
+       ('Ford', 'Fiesta', 'REG124', 45.0, true),
        ('Tesla', 'Model 3', 'REG125', 85.0, true),
        ('Hyundai', 'i10', 'REG126', 40.0, false),
-       ('BMW', '320i', 'REG127', 70.0, true);
+       ('BMW', '320i', 'REG127', 70.0, false);
 
 -- Customer testdata
 INSERT INTO customers (username, name, address, email, phone_number)
@@ -17,5 +17,5 @@ VALUES ('jdoe', 'John Doe', '1234 Elm Street', 'johndoe@example.com', '555-1234'
 -- Booking testdata
 INSERT INTO Booking (booking_date, return_date, customer_id, car_id)
 VALUES (CURRENT_DATE, CURRENT_DATE + INTERVAL '7' DAY, 1, 1),
-       (CURRENT_DATE, CURRENT_DATE + INTERVAL '7' DAY, 2, 2),
+      (CURRENT_DATE, CURRENT_DATE + INTERVAL '7' DAY, 2, 2),
        (CURRENT_DATE, CURRENT_DATE + INTERVAL '7' DAY, 3, 3);

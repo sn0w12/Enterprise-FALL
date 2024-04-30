@@ -9,15 +9,14 @@ import java.util.Optional;
 public interface BookingServiceInterface {
     List<Booking> getAllBookings();
 
-    Optional<Booking> getBookingById(long id);
-
-    Booking addNewBooking(Booking booking);
+    Optional<Booking> getBookingById(int id);
 
     Booking addNewBookingDate(Booking booking);
 
-    String deleteBookingById(long id);
+    String deleteBookingById(int id);
 
-    String cancelBooking(long bookingId);
+    String cancelBooking(Booking booking);
 
-    Booking updateBooking(long id, Booking booking);
+
+
 }

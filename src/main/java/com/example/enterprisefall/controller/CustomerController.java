@@ -6,7 +6,6 @@ import com.example.enterprisefall.service.BookingService;
 import com.example.enterprisefall.service.CarService;
 import com.example.enterprisefall.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -35,33 +34,18 @@ public class CustomerController {
         return ResponseEntity.ok(carService.findAllAvailableCars());
     }
 
-
     @PostMapping("/ordercar")
     public ResponseEntity<String> orderCar(@RequestParam("customerId") int customerId, @RequestParam("carId") int carId) {
-        String bookingResult = customerService.orderCar(customerId, carId);
-        return ResponseEntity.ok(bookingResult);
+        return ResponseEntity.ok(customerService.orderCar(customerId, carId));
     }
 
-
-
-            // Inte delete utan bara cancel
-            // ändra slutdatum och att bil går från unavailable till available
     @PutMapping("/cancelorder")
     public ResponseEntity<String> cancelBooking(@RequestBody Booking booking) {
-
-        String cancelResult = bookingService.cancelBooking(booking.getId());
-
-        if (cancelResult.equals("Booking cancelled")) {
-            return ResponseEntity.ok(cancelResult);
-        } else {
-            return ResponseEntity.status((HttpStatus.NOT_FOUND)).body(cancelResult);
-        }
-
+        return ResponseEntity.ok(bookingService.cancelBooking(booking));
     }
 
     @GetMapping("/myorders")
     public ResponseEntity<List<String>> listOrdersForCustomer(@RequestParam int customerId) {
-        List<String> bookings = customerService.listBookings(customerId);
-        return ResponseEntity.ok(bookings);
+        return ResponseEntity.ok(customerService.listBookings(customerId));
     }
 }

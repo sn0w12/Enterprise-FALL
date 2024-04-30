@@ -7,8 +7,7 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public interface BookingRepository extends JpaRepository<Booking, Long> {
-    Optional<Booking> findById(Long id);
+public interface BookingRepository extends JpaRepository<Booking, Integer> {
+    Optional<Booking> findById(int id);
 
-    void deleteById(Long id);
 }
