@@ -37,8 +37,7 @@ public class AdminController {
 
     @PostMapping("/addcustomer")
     public ResponseEntity<Customer> addCustomer(@RequestBody Customer newCustomer) {
-        Customer savedCustomer = customerService.addCustomer(newCustomer);
-        return ResponseEntity.ok(savedCustomer);
+        return ResponseEntity.ok(customerService.addCustomer(newCustomer));
     }
 
     @GetMapping("/customers")
