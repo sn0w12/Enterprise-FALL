@@ -1,52 +1,221 @@
-2024-04-29 11:12:07,417 * INFO * com.example.enterprisefall.service.CustomerService * listBookings * [- Toyota Corolla, Booked on: 2024-04-29, By: John Doe, Return by: 2024-05-06]
-2024-04-29 11:12:59,037 * INFO * com.example.enterprisefall.service.CarService * updateCar * 
-Admin updated Car with id: 1
-Price per day changed to: 55.0
-Manifacturer changed to: Toyota
-Model changed to: Corolla
-Reg Nr changed to: REG123
-
-2024-04-29 11:12:59,039 * INFO * com.example.enterprisefall.service.CustomerService * orderCar * Customer booked Toyota Corolla REG123 booked for John Doe on 29-04-2024 for 55.0 Return car by: 06-05-2024
-2024-04-29 11:13:44,221 * INFO * com.example.enterprisefall.service.CustomerService * listBookings * [- Toyota Corolla, Booked on: 2024-04-29, By: John Doe, Return by: 2024-05-06, - Toyota Corolla, Booked on: 2024-04-29, By: John Doe, Return by: 2024-05-06]
-2024-04-29 11:17:51,861 * INFO * com.example.enterprisefall.service.BookingService * deleteBookingById * 
-Deleted booking with ID: 1
-
-2024-04-29 11:31:25,642 * INFO * com.example.enterprisefall.service.CarService * updateCar * 
+2024-04-30 00:18:49,378 * INFO * com.example.enterprisefall.service.CustomerService * listBookings * [- Toyota Corolla, Booked on: 2024-04-30, By: John Doe, Return by: 2024-05-07]
+2024-04-30 00:21:32,727 * INFO * com.example.enterprisefall.service.CustomerService * listBookings * [- Toyota Corolla, Booked on: 2024-04-30, By: John Doe, Return by: 2024-05-07]
+2024-04-30 00:21:52,671 * INFO * com.example.enterprisefall.service.CustomerService * listBookings * [- Ford Fiesta, Booked on: 2024-04-30, By: Alice Smith, Return by: 2024-05-07]
+2024-04-30 00:26:34,635 * INFO * com.example.enterprisefall.service.CarService * updateCar * 
 Admin updated Car with id: 4
 Price per day changed to: 40.0
 Manifacturer changed to: Hyundai
 Model changed to: i10
 Reg Nr changed to: REG126
 
-2024-04-29 11:31:25,643 * INFO * com.example.enterprisefall.service.CustomerService * orderCar * Customer booked Hyundai i10 REG126 booked for Robert Jones on 29-04-2024 for 40.0 Return car by: 06-05-2024
-2024-04-29 11:32:02,812 * INFO * com.example.enterprisefall.service.CustomerService * listBookings * [- Tesla Model 3, Booked on: 2024-04-29, By: Robert Jones, Return by: 2024-05-06, - Hyundai i10, Booked on: 2024-04-29, By: Robert Jones, Return by: 2024-05-06]
-2024-04-29 11:49:17,530 * INFO * com.example.enterprisefall.service.CustomerService * deleteCustomer * Admin deleted customer with ID: 1
-2024-04-29 11:50:16,209 * INFO * com.example.enterprisefall.service.CarService * deleteCarById * 
-Admin deleted car with ID: 1
+2024-04-30 00:26:34,652 * INFO * com.example.enterprisefall.service.CustomerService * orderCar * Customer booked Hyundai i10 REG126 booked for John Doe on 30-04-2024 for 40.0 Return car by: 07-05-2024
+2024-04-30 00:27:59,675 * INFO * com.example.enterprisefall.service.CarService * updateCar * 
+Admin updated Car with id: 4
+Price per day changed to: 40.0
+Manifacturer changed to: Hyundai
+Model changed to: i10
+Reg Nr changed to: REG126
 
-2024-04-29 11:51:39,856 * ERROR * com.example.enterprisefall.service.CustomerService * updateCustomer * 
-ERROR: Customer not found with ID 1
+2024-04-30 00:27:59,676 * INFO * com.example.enterprisefall.service.CustomerService * orderCar * Customer booked Hyundai i10 REG126 booked for Alice Smith on 30-04-2024 for 40.0 Return car by: 07-05-2024
+2024-04-30 00:28:35,445 * INFO * com.example.enterprisefall.service.CarService * updateCar * 
+Admin updated Car with id: 4
+Price per day changed to: 40.0
+Manifacturer changed to: Hyundai
+Model changed to: i10
+Reg Nr changed to: REG126
 
-2024-04-29 11:52:33,443 * ERROR * com.example.enterprisefall.service.CustomerService * updateCustomer * 
-ERROR: Customer not found with ID 1
+2024-04-30 00:28:35,447 * INFO * com.example.enterprisefall.service.CustomerService * orderCar * Customer booked Hyundai i10 REG126 booked for Robert Jones on 30-04-2024 for 40.0 Return car by: 07-05-2024
+2024-04-30 00:29:39,361 * INFO * com.example.enterprisefall.service.CarService * updateCar * 
+Admin updated Car with id: 4
+Price per day changed to: 40.0
+Manifacturer changed to: Hyundai
+Model changed to: i10
+Reg Nr changed to: REG126
 
-2024-04-29 11:55:29,656 * INFO * com.example.enterprisefall.service.CustomerService * updateCustomer * 
-Admin updated Customer with id: 3
-Name changed to: Mange
+2024-04-30 00:29:39,363 * INFO * com.example.enterprisefall.service.CustomerService * orderCar * Customer booked Hyundai i10 REG126 booked for Alice Smith on 30-04-2024 for 40.0 Return car by: 07-05-2024
+2024-04-30 00:29:56,044 * INFO * com.example.enterprisefall.service.CarService * updateCar * 
+Admin updated Car with id: 4
+Price per day changed to: 40.0
+Manifacturer changed to: Hyundai
+Model changed to: i10
+Reg Nr changed to: REG126
 
-2024-04-29 12:06:11,503 * ERROR * com.example.enterprisefall.service.CarService * updateCar * 
-ERROR: Car not found with ID 0
+2024-04-30 00:29:56,046 * INFO * com.example.enterprisefall.service.CustomerService * orderCar * Customer booked Hyundai i10 REG126 booked for John Doe on 30-04-2024 for 40.0 Return car by: 07-05-2024
+2024-04-30 00:33:31,994 * INFO * com.example.enterprisefall.service.CarService * updateCar * 
+Admin updated Car with id: 4
+Price per day changed to: 40.0
+Manifacturer changed to: Hyundai
+Model changed to: i10
+Reg Nr changed to: REG126
 
-2024-04-29 12:06:16,805 * ERROR * com.example.enterprisefall.service.CarService * updateCar * 
-ERROR: Car not found with ID 0
+2024-04-30 00:33:31,995 * INFO * com.example.enterprisefall.service.CustomerService * orderCar * Customer booked Hyundai i10 REG126 booked for John Doe on 30-04-2024 for 40.0 Return car by: 07-05-2024
+2024-04-30 00:33:35,078 * INFO * com.example.enterprisefall.service.CarService * updateCar * 
+Admin updated Car with id: 4
+Price per day changed to: 40.0
+Manifacturer changed to: Hyundai
+Model changed to: i10
+Reg Nr changed to: REG126
 
-2024-04-29 12:06:27,126 * INFO * com.example.enterprisefall.service.CarService * updateCar * 
+2024-04-30 00:33:35,081 * INFO * com.example.enterprisefall.service.CustomerService * orderCar * Customer booked Hyundai i10 REG126 booked for John Doe on 30-04-2024 for 40.0 Return car by: 07-05-2024
+2024-04-30 00:35:24,529 * INFO * com.example.enterprisefall.service.CarService * updateCar * 
+Admin updated Car with id: 4
+Price per day changed to: 40.0
+Manifacturer changed to: Hyundai
+Model changed to: i10
+Reg Nr changed to: REG126
+
+2024-04-30 00:35:24,531 * INFO * com.example.enterprisefall.service.CustomerService * orderCar * Customer booked Hyundai i10 REG126 booked for John Doe on 30-04-2024 for 40.0 Return car by: 07-05-2024
+2024-04-30 00:40:55,924 * INFO * com.example.enterprisefall.service.CarService * updateCar * 
+Admin updated Car with id: 4
+Price per day changed to: 40.0
+Manifacturer changed to: Hyundai
+Model changed to: i10
+Reg Nr changed to: REG126
+
+2024-04-30 00:40:55,987 * INFO * com.example.enterprisefall.service.CustomerService * orderCar * Customer booked Hyundai i10 REG126 booked for John Doe on 30-04-2024 for 40.0 Return car by: 07-05-2024
+2024-04-30 01:58:37,002 * INFO * com.example.enterprisefall.service.CarService * updateCar * 
 Admin updated Car with id: 2
+Price per day changed to: 45.0
+Manifacturer changed to: Ford
+Model changed to: Fiesta
+Reg Nr changed to: REG124
 
-2024-04-29 12:06:57,573 * INFO * com.example.enterprisefall.service.CarService * updateCar * 
+2024-04-30 01:58:54,580 * INFO * com.example.enterprisefall.service.CustomerService * orderCar * Customer booked Ford Fiesta REG124 booked for John Doe on 30-04-2024 for 45.0 Return car by: 07-05-2024
+2024-04-30 02:02:31,684 * INFO * com.example.enterprisefall.service.CarService * updateCar * 
 Admin updated Car with id: 2
+Price per day changed to: 45.0
+Manifacturer changed to: Ford
+Model changed to: Fiesta
+Reg Nr changed to: REG124
 
-2024-04-29 12:07:08,247 * INFO * com.example.enterprisefall.service.CarService * updateCar * 
+2024-04-30 02:02:41,890 * INFO * com.example.enterprisefall.service.CustomerService * orderCar * Customer booked Ford Fiesta REG124 booked for Alice Smith on 30-04-2024 for 45.0 Return car by: 07-05-2024
+2024-04-30 02:29:00,642 * INFO * com.example.enterprisefall.service.CarService * updateCar * 
 Admin updated Car with id: 2
-Manifacturer changed to: lambo
+Price per day changed to: 45.0
+Manifacturer changed to: Ford
+Model changed to: Fiesta
+Reg Nr changed to: REG124
+
+2024-04-30 02:29:00,672 * INFO * com.example.enterprisefall.service.CustomerService * orderCar * Customer booked Ford Fiesta REG124 booked for Alice Smith on 30-04-2024 for 45.0 Return car by: 07-05-2024
+2024-04-30 02:30:09,033 * INFO * com.example.enterprisefall.service.BookingService * cancelBooking * 
+Booking with ID: 2 has been cancelled
+
+2024-04-30 02:30:17,618 * INFO * com.example.enterprisefall.service.CarService * updateCar * 
+Admin updated Car with id: 2
+Price per day changed to: 45.0
+Manifacturer changed to: Ford
+Model changed to: Fiesta
+Reg Nr changed to: REG124
+
+2024-04-30 02:30:17,621 * INFO * com.example.enterprisefall.service.CustomerService * orderCar * Customer booked Ford Fiesta REG124 booked for Alice Smith on 30-04-2024 for 45.0 Return car by: 07-05-2024
+2024-04-30 02:30:35,520 * INFO * com.example.enterprisefall.service.BookingService * cancelBooking * 
+Booking with ID: 2 has been cancelled
+
+2024-04-30 02:30:52,984 * INFO * com.example.enterprisefall.service.CarService * updateCar * 
+Admin updated Car with id: 2
+Price per day changed to: 45.0
+Manifacturer changed to: Ford
+Model changed to: Fiesta
+Reg Nr changed to: REG124
+
+2024-04-30 02:30:52,987 * INFO * com.example.enterprisefall.service.CustomerService * orderCar * Customer booked Ford Fiesta REG124 booked for Alice Smith on 30-04-2024 for 45.0 Return car by: 07-05-2024
+2024-04-30 02:35:03,373 * INFO * com.example.enterprisefall.service.CarService * updateCar * 
+Admin updated Car with id: 4
+Price per day changed to: 40.0
+Manifacturer changed to: Hyundai
+Model changed to: i10
+Reg Nr changed to: REG126
+
+2024-04-30 02:35:03,379 * INFO * com.example.enterprisefall.service.CustomerService * orderCar * Customer booked Hyundai i10 REG126 booked for Alice Smith on 30-04-2024 for 40.0 Return car by: 07-05-2024
+2024-04-30 02:35:17,213 * INFO * com.example.enterprisefall.service.CarService * updateCar * 
+Admin updated Car with id: 1
+Price per day changed to: 55.0
+Manifacturer changed to: Toyota
+Model changed to: Corolla
+Reg Nr changed to: REG123
+
+2024-04-30 02:35:17,217 * INFO * com.example.enterprisefall.service.CustomerService * orderCar * Customer booked Toyota Corolla REG123 booked for Alice Smith on 30-04-2024 for 55.0 Return car by: 07-05-2024
+2024-04-30 02:45:59,983 * INFO * com.example.enterprisefall.service.CarService * updateCar * 
+Admin updated Car with id: 1
+Price per day changed to: 55.0
+Manifacturer changed to: Toyota
+Model changed to: Corolla
+Reg Nr changed to: REG123
+
+2024-04-30 02:46:00,030 * INFO * com.example.enterprisefall.service.CustomerService * orderCar * Customer booked Toyota Corolla REG123 booked for Alice Smith on 30-04-2024 for 55.0 Return car by: 07-05-2024
+2024-04-30 02:46:05,983 * INFO * com.example.enterprisefall.service.CarService * updateCar * 
+Admin updated Car with id: 2
+Price per day changed to: 45.0
+Manifacturer changed to: Ford
+Model changed to: Fiesta
+Reg Nr changed to: REG124
+
+2024-04-30 02:46:05,987 * INFO * com.example.enterprisefall.service.CustomerService * orderCar * Customer booked Ford Fiesta REG124 booked for Alice Smith on 30-04-2024 for 45.0 Return car by: 07-05-2024
+2024-04-30 03:22:07,862 * INFO * com.example.enterprisefall.service.CarService * updateCar * 
+Admin updated Car with id: 2
+Price per day changed to: 45.0
+Manifacturer changed to: Ford
+Model changed to: Fiesta
+Reg Nr changed to: REG124
+
+2024-04-30 03:22:07,913 * INFO * com.example.enterprisefall.service.CustomerService * orderCar * Customer booked Ford Fiesta REG124 booked for John Doe on 30-04-2024 for 45.0 Return car by: 07-05-2024
+2024-04-30 03:22:22,771 * INFO * com.example.enterprisefall.service.CarService * updateCar * 
+Admin updated Car with id: 4
+Price per day changed to: 40.0
+Manifacturer changed to: Hyundai
+Model changed to: i10
+Reg Nr changed to: REG126
+
+2024-04-30 03:22:22,776 * INFO * com.example.enterprisefall.service.CustomerService * orderCar * Customer booked Hyundai i10 REG126 booked for Alice Smith on 30-04-2024 for 40.0 Return car by: 07-05-2024
+2024-04-30 03:23:30,443 * INFO * com.example.enterprisefall.service.BookingService * cancelBooking * 
+Booking with ID: 1 has been cancelled
+
+2024-04-30 03:23:37,555 * INFO * com.example.enterprisefall.service.BookingService * cancelBooking * 
+Booking with ID: 2 has been cancelled
+
+2024-04-30 03:24:07,217 * INFO * com.example.enterprisefall.service.BookingService * cancelBooking * 
+Booking with ID: 2 has been cancelled
+
+2024-04-30 03:56:07,138 * INFO * com.example.enterprisefall.service.CarService * updateCar * 
+Admin updated Car with id: 2
+Price per day changed to: 45.0
+Manifacturer changed to: Ford
+Model changed to: Fiesta
+Reg Nr changed to: REG124
+
+2024-04-30 03:56:07,189 * INFO * com.example.enterprisefall.service.CustomerService * orderCar * Customer booked Ford Fiesta REG124 booked for John Doe on 30-04-2024 for 45.0 Return car by: 07-05-2024
+2024-04-30 03:56:29,294 * INFO * com.example.enterprisefall.service.CarService * updateCar * 
+Admin updated Car with id: 4
+Price per day changed to: 40.0
+Manifacturer changed to: Hyundai
+Model changed to: i10
+Reg Nr changed to: REG126
+
+2024-04-30 03:56:29,298 * INFO * com.example.enterprisefall.service.CustomerService * orderCar * Customer booked Hyundai i10 REG126 booked for Alice Smith on 30-04-2024 for 40.0 Return car by: 07-05-2024
+2024-04-30 03:56:40,648 * INFO * com.example.enterprisefall.service.CarService * updateCar * 
+Admin updated Car with id: 1
+Price per day changed to: 55.0
+Manifacturer changed to: Toyota
+Model changed to: Corolla
+Reg Nr changed to: REG123
+
+2024-04-30 03:56:40,656 * INFO * com.example.enterprisefall.service.CustomerService * orderCar * Customer booked Toyota Corolla REG123 booked for Robert Jones on 30-04-2024 for 55.0 Return car by: 07-05-2024
+2024-04-30 04:01:19,400 * INFO * com.example.enterprisefall.service.CarService * updateCar * 
+Admin updated Car with id: 2
+Price per day changed to: 45.0
+Manifacturer changed to: Ford
+Model changed to: Fiesta
+Reg Nr changed to: REG124
+
+2024-04-30 04:01:19,429 * INFO * com.example.enterprisefall.service.CustomerService * orderCar * Customer booked Ford Fiesta REG124 booked for John Doe on 30-04-2024 for 45.0 Return car by: 07-05-2024
+2024-04-30 04:01:27,034 * INFO * com.example.enterprisefall.service.CarService * updateCar * 
+Admin updated Car with id: 1
+Price per day changed to: 55.0
+Manifacturer changed to: Toyota
+Model changed to: Corolla
+Reg Nr changed to: REG123
+
+2024-04-30 04:01:27,039 * INFO * com.example.enterprisefall.service.CustomerService * orderCar * Customer booked Toyota Corolla REG123 booked for Alice Smith on 30-04-2024 for 55.0 Return car by: 07-05-2024
+2024-04-30 04:04:00,505 * INFO * com.example.enterprisefall.service.BookingService * cancelBooking * 
+Booking with ID: 2 has been cancelled
 

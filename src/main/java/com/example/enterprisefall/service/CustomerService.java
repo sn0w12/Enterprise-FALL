@@ -126,7 +126,7 @@ public class CustomerService {
 
     bookingService.addNewBookingDate(booking);
 
-    car.setIsBooked(false);
+    car.setIsBooked(true);
     carService.updateCar(car);
 
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");

@@ -15,7 +15,7 @@ VALUES ('jdoe', 'John Doe', '1234 Elm Street', 'johndoe@example.com', '555-1234'
        ('twilliams', 'Tom Williams', '5678 Spruce Street', 'tomwilliams@example.com', '555-5678');
 
 -- Booking testdata
-INSERT INTO Booking (booking_date, return_date, customer_id, car_id)
-VALUES (CURRENT_DATE, CURRENT_DATE + INTERVAL '7' DAY, 1, 1),
-       (CURRENT_DATE, CURRENT_DATE + INTERVAL '7' DAY, 2, 2),
-       (CURRENT_DATE, CURRENT_DATE + INTERVAL '7' DAY, 3, 3);
+---INSERT INTO Booking (booking_date, return_date, customer_id, car_id)
+--VALUES (CURRENT_DATE, CURRENT_DATE + INTERVAL '7' DAY, 1, 1),
+  --     (CURRENT_DATE, CURRENT_DATE + INTERVAL '7' DAY, 2, 2),
+    --   (CURRENT_DATE, CURRENT_DATE + INTERVAL '7' DAY, 3, 3);

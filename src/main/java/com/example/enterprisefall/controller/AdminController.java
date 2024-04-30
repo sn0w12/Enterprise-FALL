@@ -65,8 +65,12 @@ public class AdminController {
 
     ////• Lista bokningar GET /api/v1/orders
     @GetMapping("/orders")
-    public ResponseEntity<List<Booking>> listAllBookings() {
+    public ResponseEntity<Object> listAllBookings() {
         List<Booking> bookings = bookingService.getAllBookings();
+        if (bookings.isEmpty()) {
+            return new ResponseEntity<>("There are no bookings in the database", HttpStatus.OK);
+        }
+
         return ResponseEntity.ok(bookings);
     }
 
