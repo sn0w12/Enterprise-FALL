@@ -219,3 +219,14 @@ Reg Nr changed to: REG123
 2024-04-30 04:04:00,505 * INFO * com.example.enterprisefall.service.BookingService * cancelBooking * 
 Booking with ID: 2 has been cancelled
 
+2024-04-30 04:19:17,031 * INFO * com.example.enterprisefall.service.CustomerService * listBookings * []
+2024-04-30 04:19:31,806 * INFO * com.example.enterprisefall.service.CarService * updateCar * 
+Admin updated Car with id: 1
+Price per day changed to: 55.0
+Manifacturer changed to: Toyota
+Model changed to: Corolla
+Reg Nr changed to: REG123
+
+2024-04-30 04:19:31,833 * INFO * com.example.enterprisefall.service.CustomerService * orderCar * Customer booked Toyota Corolla REG123 booked for Alice Smith on 30-04-2024 for 55.0 Return car by: 07-05-2024
+2024-04-30 04:19:41,984 * INFO * com.example.enterprisefall.service.CustomerService * listBookings * []
+2024-04-30 04:20:56,516 * INFO * com.example.enterprisefall.service.CustomerService * listBookings * [- Toyota Corolla, Booked on: 2024-04-30, By: Alice Smith, Return by: 2024-05-07]
